@@ -95,8 +95,13 @@ a{color:inherit;text-underline-offset:.2em}
 .falas li svg{width:22px;height:22px;flex:0 0 auto;color:var(--alerta)}
 .virada{margin-top:26px;font-size:clamp(20px,1.9vw,24px);font-weight:800;line-height:1.3}
 
+/* Pontes entre seções */
+.ponte{margin:44px auto 0;max-width:46ch;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:17px;color:var(--suave);font-style:italic}
+.ponte svg{width:30px;height:30px;color:var(--latao)}
+@media (prefers-reduced-motion:no-preference){.ponte svg{animation:desce 1.8s ease-in-out infinite}@keyframes desce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}}
+
 /* Quebra de padrão */
-.pre{font-size:clamp(20px,2vw,26px);font-weight:700;color:#fff;max-width:30ch;margin:0 auto 6px}
+.pre{font-size:clamp(20px,2vw,26px);font-weight:700;color:#fff;max-width:30ch;margin:0 auto 22px}
 .naonormal{font-size:clamp(72px,10vw,150px);line-height:.9;color:#fff}
 .naonormal span{color:#ff3b4e}
 .liberdade{position:relative;overflow:hidden;text-align:center;padding:110px 0;background:radial-gradient(800px 420px at 50% 60%,rgba(226,174,58,.25),transparent 70%),linear-gradient(180deg,#0b1a30,#07111f)}
@@ -400,13 +405,15 @@ footer a{color:#c8d3e2}
   <div class="wrap duo">
     <div class="anel" data-in><img src="/img/vitor-mesa.webp" width="520" height="971" loading="lazy" decoding="async" alt="Vitor Mendes pensativo, à mesa com livros de caldeiras, vasos de pressão e NR-13" style="object-position:50% 18%"></div>
     <div>
-      <h2 class="d titulo" data-in style="--i:1">Pensamentos que <span class="ouro">te travam</span></h2>
+      <h2 class="d titulo" data-in style="--i:1">Você se reconhece <span class="ouro">em algum desses pensamentos?</span></h2>
       <ul class="falas"><li data-in style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Estudei 5 anos de cálculo pra ganhar isso?”</li><li data-in style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Meu CREA está na gaveta servindo pra quê?”</li><li data-in style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Gente da minha turma já está faturando… e eu aqui.”</li><li data-in style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“E se eu assinar uma ART e der problema? Minha carreira acaba.”</li><li data-in style="--i:6"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Quanto eu cobro? Caro, perco. Barato, me queimo.”</li><li data-in style="--i:7"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Eu sei que sou capaz. Só não sei por onde começar.”</li></ul>
-      <p class="reconhece" data-in style="--i:8"><b>Se você se reconheceu em pelo menos um, esta página foi escrita para você.</b> Esses pensamentos voltam no banho, no trânsito e antes de dormir. Todo santo dia.</p>
+      <p class="reconhece" data-in style="--i:8"><b>Se você se reconheceu em pelo menos um, esta página foi escrita para você.</b> E o mais importante: o problema não é você.</p>
       <div class="acao esq" data-in style="--i:9">
         <a class="btn" href="#" data-checkout>Quero sair desse ciclo agora</a>
       </div>
     </div>
+
+    <p class="ponte" data-in>Por que isso acontece com tanto engenheiro bom? A resposta está logo abaixo.<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
   </div>
 </section>
 
@@ -416,7 +423,7 @@ footer a{color:#c8d3e2}
     <div class="cabeca">
       <p class="pre" data-in>Ter um diploma de engenharia mecânica e não saber transformar isso em renda</p>
       <h2 class="d naonormal" data-in style="--i:1"><span>Não</span> é normal.</h2>
-      <p class="lead" data-in style="--i:1">Você tem diploma, conhecimento técnico e CREA. Mas ninguém te mostrou como transformar isso em <b>serviço, cliente e dinheiro no bolso</b>. E enquanto você não descobre, a conta chega:</p>
+      <p class="lead" data-in style="--i:2">Você tem diploma, conhecimento técnico e CREA. O que ninguém te mostrou foi como transformar isso em <b>serviço, cliente e dinheiro no bolso</b>. E enquanto você não descobre, a conta chega:</p>
     </div>
     <ul class="custos">
       <li data-in><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Mais um mês dependendo de um salário que não acompanha o que você estudou.</li>
@@ -429,30 +436,17 @@ footer a{color:#c8d3e2}
     <div class="acao" data-in>
       <a class="btn" href="#" data-checkout>Quero mudar isso hoje</a>
     </div>
-  </div>
-</section>
 
-<!-- DOR -> SOLUÇÃO -->
-<section class="sec">
-  <div class="wrap">
-    <div class="cabeca">
-      <h2 class="d titulo" data-in>Cada dor sua <span class="ouro">tem uma resposta aqui</span></h2>
-      <p class="lead" data-in style="--i:1">O programa foi construído em cima dos travamentos reais de engenheiros que querem começar em NR-13.</p>
-    </div>
-    <div class="dsol"><div class="ds" data-in style="--i:0"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Não sei por onde começar na NR-13.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Você recebe a sequência exata: mercado, enquadramento, campo, relatório e venda.</b><small>Módulos 01 a 06</small></span></div></div><div class="ds" data-in style="--i:1"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Tenho medo de assinar uma ART e dar problema.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Você aprende seus limites de atuação, o que verificar e quando buscar apoio. Assina com segurança.</b><small>Módulos 01, 07 e 11</small></span></div></div><div class="ds" data-in style="--i:2"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Não sei quanto cobrar.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Calculadora de preço com horas, deslocamento, tributos, risco e margem. Fim do chute.</b><small>Módulo 07 + bônus</small></span></div></div><div class="ds" data-in style="--i:3"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Não sei onde achar cliente.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Plano de 30 dias com posicionamento, abordagem e proposta profissional pronta.</b><small>Módulo 09 + bônus</small></span></div></div><div class="ds" data-in style="--i:4"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Nunca fiz uma inspeção de verdade.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Casos reais gravados: reservatório, caldeira, manômetro e válvula de segurança em bancada.</b><small>Módulos 10 e 11</small></span></div></div></div>
-    <div class="acao" data-in>
-      <a class="btn" href="#" data-checkout>Quero resolver isso agora</a>
-      <small>7 dias de garantia incondicional</small>
-    </div>
+    <p class="ponte" data-in>Agora a boa notícia: a demanda que você precisa já existe, e é obrigatória por lei.<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
   </div>
 </section>
 
 <!-- CAMINHO -->
-<section class="sec alt">
+<section class="sec">
   <div class="wrap">
     <div class="cabeca">
-      <h2 class="d titulo" data-in style="--i:1">Enquanto você procura vaga, <span class="ouro">existe demanda procurando engenheiro</span></h2>
-      <p class="lead" data-in style="--i:2">Oficinas, indústrias, hospitais, frigoríficos: toda empresa com caldeira ou reservatório de ar é <b>obrigada por lei</b> a manter tudo inspecionado. E o prazo vence de novo. O que falta não é mercado, é o caminho. Ele tem 4 etapas:</p>
+      <h2 class="d titulo" data-in style="--i:1">A demanda já existe. <span class="ouro">O que falta é o caminho.</span></h2>
+      <p class="lead" data-in style="--i:2">Oficinas, indústrias, hospitais, frigoríficos: toda empresa com caldeira ou reservatório de ar é <b>obrigada pela NR-13</b> a manter tudo inspecionado, e o prazo vence de novo todo ciclo. Enquanto você procura vaga, essa demanda procura engenheiro. O caminho até ela tem 4 etapas:</p>
     </div>
     <ol class="etapas">
       <li class="etapa" data-in><h3>Identificar</h3><p>Onde está a demanda de NR-13 e quais serviços fazem sentido para começar.</p><ul><li>Mercado da NR-13</li><li>PLH, CREA e ART</li><li>Limites de atuação</li></ul></li>
@@ -464,34 +458,34 @@ footer a{color:#c8d3e2}
       <a class="btn" href="#" data-checkout>Quero aprender esse caminho</a>
       <small>Você não precisa abandonar a engenharia. Precisa aprender a usá-la.</small>
     </div>
+
+    <p class="ponte" data-in>Esse é o caminho. Veja agora como ele resolve, uma a uma, as dores de quem está começando.<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
   </div>
 </section>
 
-<!-- ANTES E DEPOIS -->
-<section class="sec">
+<!-- DOR -> SOLUÇÃO -->
+<section class="sec alt">
   <div class="wrap">
     <div class="cabeca">
-      <h2 class="d titulo" data-in>Quem você é hoje <span class="ouro">e quem você vai se tornar</span></h2>
-      <p class="lead" data-in style="--i:1">Não é sobre mais um curso. É sobre a sua carreira daqui pra frente.</p>
+      <h2 class="d titulo" data-in>Cada dor que você sentiu lá em cima <span class="ouro">tem uma resposta neste caminho</span></h2>
+      <p class="lead" data-in style="--i:1">As mesmas frases do início da página, agora com o que o programa entrega para cada uma.</p>
     </div>
-    <div class="ad">
-      <div class="col antes" data-in><h3>Hoje</h3><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Olha para a NR-13 e não sabe por onde começar</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Tem medo de assinar ART e assumir responsabilidade</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Não sabe quanto cobrar nem como montar proposta</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Depende 100% de salário ou de vaga aparecer</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Se sente só mais um engenheiro no mercado</li></ul></div>
-      <div class="seta-ad" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="col depois" data-in style="--i:1"><h3>Depois do programa</h3><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Enquadra caldeiras e vasos de pressão com critério</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sabe o que verificar, documentar e quando buscar apoio</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Monta proposta profissional com preço calculado</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tem um plano de 30 dias para os primeiros clientes</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>É reconhecido como especialista num nicho valorizado</li></ul></div>
-    </div>
+    <div class="dsol"><div class="ds" data-in style="--i:0"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Não sei por onde começar na NR-13.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Você recebe a sequência exata: mercado, enquadramento, campo, relatório e venda.</b><small>Módulos 01 a 06</small></span></div></div><div class="ds" data-in style="--i:1"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Tenho medo de assinar uma ART e dar problema.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Você aprende seus limites de atuação, o que verificar e quando buscar apoio. Assina com segurança.</b><small>Módulos 01, 07 e 11</small></span></div></div><div class="ds" data-in style="--i:2"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Não sei quanto cobrar.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Calculadora de preço com horas, deslocamento, tributos, risco e margem. Fim do chute.</b><small>Módulo 07 + bônus</small></span></div></div><div class="ds" data-in style="--i:3"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Não sei onde achar cliente.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Plano de 30 dias com posicionamento, abordagem e proposta profissional pronta.</b><small>Módulo 09 + bônus</small></span></div></div><div class="ds" data-in style="--i:4"><div class="ds-dor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>“Nunca fiz uma inspeção de verdade.”</span></div><div class="ds-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ds-sol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Casos reais gravados: reservatório, caldeira, manômetro e válvula de segurança em bancada.</b><small>Módulos 10 e 11</small></span></div></div></div>
     <div class="acao" data-in>
-      <a class="btn" href="#" data-checkout>Quero essa transformação</a>
-      <small>7 dias de garantia: o risco é todo meu</small>
+      <a class="btn" href="#" data-checkout>Quero resolver isso agora</a>
+      <small>7 dias de garantia incondicional</small>
     </div>
+
+    <p class="ponte" data-in>Tudo isso está organizado em um método, na ordem certa para quem está começando.<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
   </div>
 </section>
 
 <!-- MÉTODO E CONTEÚDO -->
-<section class="sec alt" id="conteudo">
+<section class="sec" id="conteudo">
   <div class="wrap">
     <div class="cabeca">
       <h2 class="d titulo" data-in>Método <span class="ouro">M.E.S.T.R.E.</span> NR13</h2>
-      <p class="lead" data-in style="--i:1">Direto ao essencial para caldeiras e vasos de pressão de ar comprimido, onde está a demanda de entrada.</p>
+      <p class="lead" data-in style="--i:1">As 4 etapas do caminho viram 6 passos práticos, direto ao essencial de caldeiras e vasos de pressão de ar comprimido, onde está a demanda de entrada.</p>
     </div>
     <ul class="mestre">
       <li data-in><b>M</b><span>Mercado e limites</span></li>
@@ -528,15 +522,17 @@ footer a{color:#c8d3e2}
     <div class="acao" data-in>
       <a class="btn" href="#" data-checkout>Quero acesso a todo o conteúdo</a>
     </div>
+
+    <p class="ponte" data-in>E quem vai te guiar por esse método já percorreu o caminho inteiro.<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
   </div>
 </section>
 
 <!-- INSTRUTOR -->
-<section class="sec">
+<section class="sec alt">
   <div class="wrap duo">
     <div class="retrato-premium" data-in><img src="/img/vitor-evento.webp" width="600" height="800" loading="lazy" decoding="async" alt="Vitor Mendes de terno, braços cruzados"><div class="tag"><b>Vitor Mendes</b><span>Engenheiro mecânico especialista em NR-13</span></div></div>
     <div>
-      <h2 class="d titulo" data-in style="--i:1">Quem vai <span class="ouro">te ensinar</span></h2>
+      <h2 class="d titulo" data-in style="--i:1">Quem já percorreu esse caminho <span class="ouro">vai te guiar</span></h2>
       <p class="lead" data-in style="--i:2">Sou <b>Vitor Mendes</b>, engenheiro mecânico. Campo, empresas, treinamento e prestação de serviços em NR-13 fazem parte da minha rotina. Já estive do lado de quem não sabia por onde começar, e foi fazendo que construí este método.</p>
       <div class="numeros" data-in style="--i:3">
         <div><b>+150</b>empresas</div>
@@ -548,6 +544,29 @@ footer a{color:#c8d3e2}
         <a class="btn" href="#" data-checkout>Quero aprender com o Vitor</a>
       </div>
     </div>
+
+    <p class="ponte" data-in>Agora imagine você depois de percorrer esse mesmo caminho.<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+  </div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="cabeca">
+      <h2 class="d titulo" data-in>Quem você é hoje <span class="ouro">e quem você vai se tornar</span></h2>
+      <p class="lead" data-in style="--i:1">Não é sobre mais um curso. É sobre a sua carreira daqui pra frente.</p>
+    </div>
+    <div class="ad">
+      <div class="col antes" data-in><h3>Hoje</h3><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Olha para a NR-13 e não sabe por onde começar</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Tem medo de assinar ART e assumir responsabilidade</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Não sabe quanto cobrar nem como montar proposta</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Depende 100% de salário ou de vaga aparecer</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Se sente só mais um engenheiro no mercado</li></ul></div>
+      <div class="seta-ad" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="col depois" data-in style="--i:1"><h3>Depois do programa</h3><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Enquadra caldeiras e vasos de pressão com critério</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sabe o que verificar, documentar e quando buscar apoio</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Monta proposta profissional com preço calculado</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tem um plano de 30 dias para os primeiros clientes</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>É reconhecido como especialista num nicho valorizado</li></ul></div>
+    </div>
+    <div class="acao" data-in>
+      <a class="btn" href="#" data-checkout>Quero essa transformação</a>
+      <small>7 dias de garantia: o risco é todo meu</small>
+    </div>
+
+    <p class="ponte" data-in>Essa transformação tem um nome.<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
   </div>
 </section>
 
@@ -557,7 +576,7 @@ footer a{color:#c8d3e2}
     <p data-in>Quando você transforma <b>conhecimento técnico em serviço</b>, isso pode te dar</p>
     <p class="lib" data-in style="--i:1">Liberdade</p>
     <p class="lib-sub" data-in style="--i:2">A empresa compra clareza, não complexidade. Você aprende a escolher um serviço NR-13 específico, montar uma oferta simples e entregar com segurança.</p>
-    <div class="acao" data-in style="--i:3"><a class="btn btn-pulso" href="#" data-checkout>Quero minha liberdade profissional</a></div>
+    <div class="acao" data-in style="--i:3"><a class="btn btn-pulso" href="#" data-checkout>Quero minha liberdade profissional</a><small>E ela começa logo abaixo</small></div>
   </div>
 </section>
 
@@ -565,7 +584,7 @@ footer a{color:#c8d3e2}
 <section class="sec oferta-sec" id="oferta">
   <div class="wrap">
     <div class="cabeca">
-      <h2 class="d titulo" data-in>Sua nova fonte de renda <span class="ouro">começa aqui</span></h2>
+      <h2 class="d titulo" data-in>Sua liberdade profissional <span class="ouro">começa aqui</span></h2>
       <p class="lead" data-in style="--i:1">Por menos do que um mês do piso salarial de um engenheiro, você aprende um serviço que pode ser vendido para empresas o ano inteiro.</p>
     </div>
     <div class="oferta" id="oferta-card" data-in>
@@ -603,6 +622,8 @@ footer a{color:#c8d3e2}
       <p><b>Risco zero.</b> Entre, assista às aulas e baixe os materiais. Se em até 7 dias não for para você, peça o reembolso pela Hotmart e receba 100% de volta.</p>
     </div>
     <p class="obs">Um único contrato de inspeção pode pagar o programa, dependendo do escopo e da região. É uma possibilidade, não uma garantia de resultado. O software InspectorPRO é opcional e vendido à parte.</p>
+
+    <p class="ponte" data-in>Ainda com alguma dúvida? Respondo as mais comuns antes de você decidir.<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
   </div>
 </section>
 
