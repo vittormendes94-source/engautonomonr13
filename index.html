@@ -95,6 +95,11 @@ p.l b{color:#fff}
 .naonormal{font-size:clamp(72px,22vw,120px);line-height:.9;margin:20px 0 18px}
 .soco{font-family:var(--display);font-size:clamp(26px,7vw,34px);line-height:1.05;color:#fff}
 
+/* 15k */
+.meta15{display:flex;align-items:center;gap:14px;margin:18px auto 0;max-width:420px;text-align:left;background:rgba(226,174,58,.1);border:1px solid var(--borda-ouro);border-radius:16px;padding:12px 16px}
+.meta15 b{font-family:var(--display);font-weight:400;font-size:56px;line-height:.9;color:var(--latao)}
+.meta15 span{font-size:15px;color:#fff}
+
 /* 6. Caminho */
 .etapas{list-style:none;display:grid;gap:10px;margin-top:20px;counter-reset:e}
 .etapa{counter-increment:e;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;background:linear-gradient(180deg,var(--sup-2),var(--sup));border:1px solid var(--borda);border-radius:14px;padding:12px 14px}
@@ -277,6 +282,9 @@ footer a{color:#c8d3e2}
   .lib{font-size:clamp(110px,10vw,160px)}
   .caminho h3{font-size:30px}
   .caminho p{font-size:17px}
+  .meta15{max-width:560px;padding:16px 22px;gap:18px}
+  .meta15 b{font-size:80px}
+  .meta15 span{font-size:18px}
   .faq{max-width:900px}
   .faq summary{padding:18px 22px;font-size:18px}
   .faq details p{font-size:17px;padding:0 22px 18px}
@@ -381,7 +389,8 @@ footer a{color:#c8d3e2}
   <div class="wrap">
     <h2 class="d" data-in>A demanda já existe. <span class="ouro">É obrigatória por lei.</span></h2>
     <p class="l" data-in style="--i:1">Toda empresa com caldeira ou reservatório de ar comprimido <b>precisa</b> de inspeção NR-13. E o prazo vence de novo todo ciclo. Quem assina é um engenheiro. <b>Pode ser você.</b></p>
-    <div class="acao" data-in style="--i:2"><a class="btn" href="#" data-checkout>Quero entrar nesse mercado</a><small>Você não precisa abandonar a engenharia. Precisa aprender a usá-la.</small></div>
+    <div class="meta15" data-in style="--i:2"><b>15k</b><span>por mês é o potencial de uma carteira de clientes NR-13 bem construída*</span></div>
+    <div class="acao" data-in style="--i:3"><a class="btn" href="#" data-checkout>Quero entrar nesse mercado</a><small>*Potencial, não garantia: depende da sua aplicação, prospecção e região.</small></div>
   </div>
 </section>
 
@@ -515,7 +524,7 @@ footer a{color:#c8d3e2}
     <h2 id="bf-titulo">Engenheiro Autônomo NR13</h2>
     <p class="de">de <s>R$ 2.997</s> por apenas</p>
     <p class="por">R$ 1.497</p>
-    <p class="parc">ou parcelado em até 12x no cartão</p>
+    <p class="parc">ou 12x de R$ 154,82 no cartão</p>
     <div class="relogio" aria-label="Tempo restante da oferta">
       <div><b id="bf-d">00</b><span>dias</span></div>
       <div><b id="bf-h">00</b><span>horas</span></div>
@@ -547,7 +556,7 @@ var CONFIG = {
     end: "2026-11-30T23:59:59-03:00",
     priceMain: "R$ 1.497",
     priceLabel: "Black Friday: de R$ 2.997 por",
-    priceSub: "ou parcelado em até 12x no cartão",
+    priceSub: "ou 12x de R$ 154,82 no cartão",
     topbar: "BLACK FRIDAY · de R$ 2.997 por R$ 1.497 até 30/11",
     checkoutUrl: "https://pay.hotmart.com/O107817284U?off=wfthngqt"   // oferta de R$ 1.497 na Hotmart
     // Para ver a promoção antes da data, abra o site com ?bf=1 no final do endereço
