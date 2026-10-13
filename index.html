@@ -45,6 +45,9 @@ h3{font-size:1.12rem;margin-bottom:6px}
 .cta-sub{display:block;font-size:.86rem;color:var(--muted);margin-top:12px}
 .dark .cta-sub,.hero .cta-sub{color:#93a4bb}
 
+.promobar{background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:#1a1203;text-align:center;font-weight:800;font-size:.88rem;padding:9px 16px}
+.promobar[hidden]{display:none}
+
 /* Hero */
 .hero{background:radial-gradient(900px 500px at 85% 0%,#163066 0%,transparent 65%),var(--navy);color:#fff;padding:0;overflow:hidden}
 .hero-top{border-bottom:1px solid #1a2a45}
@@ -196,6 +199,8 @@ footer p+p{margin-top:8px}
 </style>
 </head>
 <body>
+
+<div class="promobar" id="promobar" hidden></div>
 
 <!-- HERO -->
 <header class="hero">
@@ -444,8 +449,20 @@ footer p+p{margin-top:8px}
 var CONFIG = {
   checkoutUrl: "https://pay.hotmart.com/O107817284U",
   priceLabel: "Investimento",
-  priceMain: "R$ 1.497",
+  priceMain: "R$ 2.997",
   priceSub: "ou parcelado em até 12x no cartão",
+  // Black Friday: entra no ar sozinha a partir de "start" (e sai em "end", se preenchido).
+  // Só ative (enabled: true) depois de criar a oferta promocional na Hotmart e colar o link dela em checkoutUrl.
+  promo: {
+    enabled: false,
+    start: "2026-11-16T00:00:00-03:00",
+    end: "",                                   // ex.: "2026-11-30T23:59:59-03:00"
+    priceMain: "R$ 1.497",
+    priceLabel: "Black Friday: de R$ 2.997 por",
+    priceSub: "ou parcelado em até 12x no cartão",
+    topbar: "BLACK FRIDAY · Programa Engenheiro Autônomo NR13 com condição especial por tempo limitado",
+    checkoutUrl: ""                            // link da oferta promocional na Hotmart
+  },
   modules: [
     ["00", "Comece por Aqui", 7, "Plano pessoal de estudo e preparação para iniciar o programa.", ["Boas-vindas ao Programa", "Minha História e Minha Experiência", "Por Que Este Programa Existe", "Como o Programa Funciona na Prática", "Regras, Compromissos e Expectativas", "Se Você Travar: Como Pedir Ajuda e Continuar", "Agora é com Você: Seu Primeiro Passo"]],
     ["01", "Mercado, Responsabilidades e Limites", 4, "Matriz de serviços e limites pessoais de atuação.", ["O Mercado da NR-13 para o Engenheiro Mecânico", "O Papel do PLH, do CREA e da ART", "Limites de Atuação e Quando Buscar Apoio", "Serviços de Entrada e Definição de Escopo"]],
@@ -464,7 +481,12 @@ var CONFIG = {
 /* ============================================================ */
 
 (function(){
-  var C = CONFIG;
+  var C = CONFIG, P = C.promo, now = Date.now();
+  if (P && P.enabled && now >= Date.parse(P.start) && (!P.end || now <= Date.parse(P.end))) {
+    C.priceMain = P.priceMain; C.priceLabel = P.priceLabel; C.priceSub = P.priceSub;
+    if (P.checkoutUrl) C.checkoutUrl = P.checkoutUrl;
+    var bar = document.getElementById("promobar"); bar.textContent = P.topbar; bar.hidden = false;
+  }
   document.querySelectorAll("[data-cfg]").forEach(function(el){ el.textContent = C[el.getAttribute("data-cfg")] || ""; });
   document.getElementById("year").textContent = new Date().getFullYear();
 
