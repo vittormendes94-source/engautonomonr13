@@ -18,193 +18,175 @@
 <style>
 @font-face{font-family:"Bebas Neue";src:url(/fonts/bebas-neue-latin.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
 :root{
-  --noite:#07111f;--aco:#10203a;--azul:#2c74ff;
-  --t1:#0f2347;--t2:#163566;--t3:#1f4a8c;--t4:#2a60b4;
-  --latao:#e2ae3a;--latao-forte:#c99522;--latao-fundo:#f6e7c1;
-  --papel:#f3f5f8;--branco:#fff;--tinta:#0c1626;--cinza:#3e4a5b;--claro:#c8d3e2;--alerta:#d8423a;--ok:#14965a;
+  --noite:#07111f;--noite-2:#0a1628;--sup:#0f1f38;--sup-2:#132848;--borda:rgba(255,255,255,.08);--borda-ouro:rgba(226,174,58,.35);
+  --latao:#e2ae3a;--latao-claro:#f6d27c;--latao-escuro:#b98a1f;
+  --branco:#fff;--texto:#e9eef6;--suave:#a9b8cc;--azul:#5a93ff;--alerta:#e0475b;--ok:#18a35d;
   --display:"Bebas Neue",Impact,sans-serif;
-  --texto:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --raio:28px;--margem:clamp(20px,6vw,88px);
+  --fonte:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --max:1180px;--raio:18px;
   --ease-out:cubic-bezier(.23,1,.32,1);--ease-in-out:cubic-bezier(.77,0,.175,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%;scrollbar-color:var(--t3) var(--noite)}
-body{font-family:var(--texto);background:var(--branco);color:var(--tinta);line-height:1.6;font-size:17px;caret-color:var(--azul)}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%;scrollbar-color:#24406b var(--noite)}
+body{font-family:var(--fonte);background:var(--noite);color:var(--texto);line-height:1.6;font-size:17px}
 ::selection{background:var(--latao);color:var(--noite)}
 img,svg{display:block;max-width:100%}
 img{height:auto}
 a{color:inherit;text-underline-offset:.2em}
-:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:6px}
-.mg{padding-left:var(--margem);padding-right:var(--margem)}
-.sec{padding-top:clamp(72px,10vw,128px);padding-bottom:clamp(72px,10vw,128px)}
-.d{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:-.005em}
-h2.d{font-size:clamp(44px,5.6vw,84px);text-wrap:balance}
-.txt{max-width:62ch}
-.escuro{background:var(--noite);color:#e9eef6}
-.escuro .txt{color:var(--claro)}
-.papel{background:var(--papel)}
+:focus-visible{outline:3px solid var(--latao);outline-offset:3px;border-radius:8px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+.sec{padding:96px 0}
+.sec.alt{background:var(--noite-2)}
+.d{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.005em}
+.titulo{font-size:clamp(42px,5vw,68px);margin-bottom:16px;text-wrap:balance}
+.titulo .ouro,.ouro{color:var(--latao)}
+.lead{font-size:clamp(17px,1.4vw,19px);color:var(--suave);max-width:60ch}
+.lead b{color:#fff}
+.cabeca{text-align:center;max-width:760px;margin:0 auto 52px}
+.cabeca .lead{margin:0 auto}
 
-/* Botão: pílula de latão, ponta redonda como o mostrador */
-.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--display);font-size:clamp(22px,2vw,26px);letter-spacing:.02em;line-height:1;text-transform:uppercase;text-decoration:none;color:var(--noite);background:var(--latao);padding:20px 36px 17px;border-radius:999px;transition:transform 140ms var(--ease-out),background-color 160ms ease;text-align:center;-webkit-tap-highlight-color:transparent}
+/* Botão premium */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--display);font-size:clamp(22px,2vw,26px);letter-spacing:.03em;line-height:1;text-transform:uppercase;text-decoration:none;color:#1c1302;background:linear-gradient(180deg,var(--latao-claro),var(--latao));padding:21px 38px 18px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(226,174,58,.55),inset 0 -3px 0 rgba(0,0,0,.16);transition:transform 160ms var(--ease-out),box-shadow 200ms ease,filter 160ms ease;text-align:center;-webkit-tap-highlight-color:transparent}
+.btn svg{width:20px;height:20px;flex:0 0 auto}
+@media (hover:hover) and (pointer:fine){.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:0 18px 40px -10px rgba(226,174,58,.7),inset 0 -3px 0 rgba(0,0,0,.16)}}
 .btn:active{transform:scale(.97)}
-@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--latao-forte)}}
-.btn-sm{font-size:20px;padding:12px 22px 10px}
-.acao{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
-.acao small{font-size:15px;color:var(--cinza)}
-.escuro .acao small{color:var(--claro)}
+.btn-sm{font-size:19px;padding:12px 22px 10px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.16)}
+.acao{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.acao.esq{align-items:flex-start;text-align:left}
+.acao small{font-size:15px;color:var(--suave)}
 
 .promobar{background:var(--latao);color:var(--noite);text-align:center;font-weight:800;font-size:15px;padding:9px 16px}
 .promobar[hidden]{display:none}
 
 /* Topo */
-.nav{position:sticky;top:0;z-index:40;background:var(--noite);color:#fff}
-.nav .mg{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
-.marca{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:28px;line-height:1;text-decoration:none;letter-spacing:.01em}
+.nav{position:sticky;top:0;z-index:40;background:rgba(7,17,31,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--borda)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:70px}
+.marca{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:27px;line-height:1;text-decoration:none;color:#fff}
 .marca svg{width:30px;height:30px}
 
-/* Hero: mostrador gigante entrando pela direita, texto centrado na vertical */
-.hero{position:relative;overflow:hidden;background:var(--noite);color:#fff;min-height:min(calc(100svh - 68px),880px);display:flex;align-items:center}
-.hero-txt{position:relative;z-index:2;width:min(42%,600px);padding-top:56px;padding-bottom:56px}
-.hero h1{font-size:clamp(56px,5.6vw,92px);margin-bottom:26px}
-.hero h1 span{color:var(--latao)}
-.hero .txt{font-size:clamp(17px,1.4vw,20px);color:var(--claro)}
-.hero .txt b{color:#fff}
-.hero .acao small{color:var(--claro)}
-.gauge{position:absolute;z-index:1;width:clamp(560px,112vh,1040px);aspect-ratio:1;top:50%;right:calc(clamp(560px,112vh,1040px) * -.3);transform:translateY(-50%)}
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(900px 600px at 78% 40%,rgba(44,96,180,.35),transparent 65%),radial-gradient(600px 400px at 10% 90%,rgba(226,174,58,.08),transparent 70%),var(--noite)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;min-height:min(calc(100svh - 70px),780px);padding-top:48px;padding-bottom:48px}
+.hero h1{font-size:clamp(50px,5.4vw,88px);margin-bottom:22px}
+.nb{white-space:nowrap}
+.hero .lead{margin-bottom:6px}
+.selo-topo{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--suave);margin-bottom:18px}
+.selo-topo b{color:#fff}
+.selo-topo span{width:8px;height:8px;border-radius:50%;background:var(--latao);box-shadow:0 0 0 5px rgba(226,174,58,.18)}
+.gauge{position:relative;width:min(100%,540px);aspect-ratio:1;justify-self:end;filter:drop-shadow(0 30px 60px rgba(0,0,0,.45))}
 .gauge .mostrador{position:absolute;inset:0;width:100%;height:100%}
-.gauge .foto{position:absolute;inset:11%;border-radius:50%;overflow:hidden;background:var(--aco)}
+.gauge .foto{position:absolute;inset:11%;border-radius:50%;overflow:hidden;background:var(--sup)}
 .gauge .foto img{width:100%;height:100%;object-fit:cover}
 
-/* Pensamentos */
-.pens{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,96px);align-items:center}
-.retrato{aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--aco);max-width:520px;width:100%}
-.retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
-.falas{list-style:none;margin-top:28px;display:grid;gap:16px}
-.falas li{display:flex;gap:16px;align-items:baseline;font-size:clamp(18px,1.6vw,21px);font-style:italic;color:var(--tinta)}
-.falas li::before{content:"";flex:0 0 14px;height:14px;border-radius:50%;background:var(--alerta);border:4px solid #f7c9c5;transform:translateY(1px)}
-.virada{margin-top:30px;font-size:clamp(20px,1.9vw,26px);font-weight:700;line-height:1.3;max-width:34ch}
-.virada span{color:var(--azul)}
+/* Números */
+.prova{border-top:1px solid var(--borda);border-bottom:1px solid var(--borda);background:var(--noite-2)}
+.prova .wrap{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.prova div div{padding:30px 12px}
+.prova div div+div{border-left:1px solid var(--borda)}
+.prova b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(44px,5vw,64px);line-height:1;color:var(--latao)}
+.prova span{font-size:15px;color:var(--suave)}
 
-/* Frase com miniaturas redondas */
-.frase{font-size:clamp(22px,2.5vw,36px);font-weight:700;line-height:1.3;max-width:38ch}
-.mini{display:inline-block;width:1.05em;height:1.05em;border-radius:50%;overflow:hidden;vertical-align:-.16em;margin:0 .12em;background:var(--aco)}
-.mini img{width:100%;height:100%;object-fit:cover}
+/* Dois lados alinhados */
+.duo{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center}
+.anel{position:relative;width:100%;max-width:440px;aspect-ratio:1;border-radius:50%;padding:12px;background:conic-gradient(from 210deg,var(--latao-claro),var(--latao),var(--latao-escuro),var(--latao),var(--latao-claro));box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.anel img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid var(--noite)}
+.falas{list-style:none;display:grid;gap:12px;margin-top:22px}
+.falas li{display:flex;gap:14px;align-items:center;background:var(--sup);border:1px solid var(--borda);border-radius:14px;padding:14px 18px;font-size:clamp(16px,1.4vw,18px);font-style:italic;color:#fff}
+.falas li svg{width:22px;height:22px;flex:0 0 auto;color:var(--alerta)}
+.virada{margin-top:26px;font-size:clamp(20px,1.9vw,24px);font-weight:800;line-height:1.3}
 
-/* Caminho: sanfona de painéis do escuro ao claro */
-.cab{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px 64px;align-items:end;margin-top:clamp(64px,8vw,104px)}
-.cab .txt{font-size:18px}
-.sanfona{list-style:none;display:flex;height:440px;margin-top:48px;border-radius:var(--raio);overflow:hidden}
-.etapa{position:relative;flex:1 1 0;min-width:76px;transition:flex-grow 450ms var(--ease-in-out);overflow:hidden}
-.etapa.aberta{flex-grow:5.5}
-.etapa:nth-child(1){background:var(--t1)}.etapa:nth-child(2){background:var(--t2)}.etapa:nth-child(3){background:var(--t3)}.etapa:nth-child(4){background:var(--t4)}
-.etapa button{position:absolute;inset:0;width:100%;background:none;border:0;color:inherit;cursor:pointer;text-align:left;font:inherit}
-.etapa .nome-v{position:absolute;left:52px;bottom:28px;transform-origin:0 100%;transform:rotate(-90deg);font-family:var(--display);font-size:24px;letter-spacing:.04em;line-height:1;white-space:nowrap;transition:opacity 200ms ease}
-.etapa .corpo{position:absolute;inset:0;padding:40px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr;gap:20px 32px;opacity:0;visibility:hidden;transition:opacity 250ms ease,visibility 0s linear 250ms;pointer-events:none;min-width:560px}
-.etapa .corpo h3{grid-column:1}
-.etapa .corpo>div{grid-column:1;align-self:end}
-.etapa .corpo .foto-etapa{grid-column:2;grid-row:1/3;align-self:center;width:clamp(180px,18vw,280px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--t2)}
-.etapa .corpo .foto-etapa img{width:100%;height:100%;object-fit:cover}
-.etapa.aberta .corpo{opacity:1;visibility:visible;transition:opacity 250ms ease 200ms,visibility 0s;pointer-events:auto}
-.etapa.aberta .nome-v{opacity:0}
-.etapa .corpo h3{font-family:var(--display);font-weight:400;font-size:clamp(48px,4.4vw,64px);line-height:.95}
-.etapa .corpo p{max-width:36ch;font-size:18px;color:#dfe7f3}
-.etapa .marcas{list-style:none;display:grid;gap:8px;margin-top:14px;font-size:16px;color:#dfe7f3}
-.etapa .marcas li{display:flex;gap:10px;align-items:baseline}
-.etapa .marcas li::before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:var(--latao)}
+/* 4 etapas: cards visíveis */
+.etapas{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:e}
+.etapa{counter-increment:e;position:relative;background:linear-gradient(180deg,var(--sup-2),var(--sup));border:1px solid var(--borda);border-radius:var(--raio);padding:28px 24px 26px;transition:transform 200ms var(--ease-out),border-color 200ms ease}
+@media (hover:hover){.etapa:hover{transform:translateY(-4px);border-color:var(--borda-ouro)}}
+.etapa::before{content:counter(e);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:linear-gradient(180deg,var(--latao-claro),var(--latao));color:var(--noite);font-family:var(--display);font-size:30px;line-height:1;padding-top:3px;margin-bottom:18px}
+.etapa h3{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;color:#fff;margin-bottom:10px}
+.etapa p{font-size:16px;color:var(--suave)}
+.etapa ul{list-style:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--borda);display:grid;gap:8px}
+.etapa li{display:flex;gap:10px;align-items:baseline;font-size:15px;color:var(--texto)}
+.etapa li::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:var(--latao);transform:translateY(-2px)}
+.frase-nr{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 auto 18px;font-size:15px;color:var(--suave)}
+.frase-nr img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--latao)}
 
-/* Método e conteúdo */
-.metodo{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,96px);align-items:start}
-.metodo .txt{margin-top:18px}
-.letras{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
-.letras li{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center}
-.letras b{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--noite);color:var(--latao);font-family:var(--display);font-weight:400;font-size:38px;line-height:1;padding-top:4px}
-.letras span{font-weight:700;font-size:16px;line-height:1.3}
-.duas{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px;margin-top:56px}
-.duas h3{font-family:var(--display);font-weight:400;font-size:clamp(30px,2.6vw,38px);line-height:1;margin-bottom:14px}
-.pontos{list-style:none;display:grid;gap:12px}
-.pontos li{display:flex;gap:14px;align-items:baseline;font-size:17px}
-.pontos li::before{content:"";flex:0 0 12px;height:12px;border-radius:50%;background:var(--azul);transform:translateY(1px)}
-.grade{margin-top:44px;background:var(--papel);border-radius:var(--raio)}
-.grade>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 28px;font-weight:800;font-size:18px}
+/* Método */
+.mestre{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.mestre li{text-align:center;background:var(--sup);border:1px solid var(--borda);border-radius:var(--raio);padding:22px 12px 20px}
+.mestre b{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 12px;border-radius:50%;border:2px solid var(--latao);color:var(--latao);font-family:var(--display);font-weight:400;font-size:38px;line-height:1;padding-top:4px}
+.mestre span{font-weight:700;font-size:15px;line-height:1.3;color:#fff}
+.listas{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.lista{background:var(--sup);border:1px solid var(--borda);border-radius:var(--raio);padding:28px}
+.lista h3{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;margin-bottom:16px;color:#fff}
+.lista ul{list-style:none;display:grid;gap:12px}
+.lista li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.lista li svg{width:20px;height:20px;flex:0 0 auto;color:var(--latao);margin-top:2px}
+.grade{margin-top:18px;background:var(--sup);border:1px solid var(--borda-ouro);border-radius:var(--raio)}
+.grade>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 28px;font-weight:800;font-size:18px;color:#fff}
 .grade>summary::-webkit-details-marker{display:none}
-.mais{position:relative;display:inline-block;flex:0 0 auto;width:22px;height:22px;transition:transform 200ms var(--ease-out)}
-.mais::before,.mais::after{content:"";position:absolute;left:50%;top:50%;width:20px;height:3px;border-radius:2px;background:currentColor;transform:translate(-50%,-50%)}
-.mais::after{transform:translate(-50%,-50%) rotate(90deg)}
-.grade[open]>summary .mais,.fichas details[open] summary .mais{transform:rotate(45deg)}
-.mods{padding:0 28px 26px;display:grid;grid-template-columns:1fr 1fr;gap:4px 40px}
-.mods details summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:14px 1fr auto;gap:10px;align-items:baseline;padding:9px 0;font-size:16px}
+.grade>summary small{display:block;font-weight:500;font-size:14px;color:var(--suave)}
+.seta{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--latao);color:var(--noite);transition:transform 220ms var(--ease-out)}
+.seta svg{width:18px;height:18px}
+details[open]>summary .seta{transform:rotate(180deg)}
+.mods{padding:0 28px 22px;display:grid;grid-template-columns:1fr 1fr;gap:2px 40px}
+.mods details{border-top:1px solid var(--borda)}
+.mods details summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:12px 1fr auto;gap:12px;align-items:center;padding:12px 0;font-size:16px}
 .mods details summary::-webkit-details-marker{display:none}
-.mods .n{width:12px;height:12px;border-radius:50%;background:var(--azul);align-self:center}
-.mods .t{font-weight:700}
-.mods .c{font-size:14px;color:var(--cinza);white-space:nowrap}
-.mods ol{margin:0 0 12px 44px;font-size:15px;color:var(--cinza)}
+.mods .n{width:8px;height:8px;border-radius:50%;background:var(--latao)}
+.mods .t{font-weight:700;color:#fff}
+.mods .c{font-size:13px;color:var(--suave);white-space:nowrap}
+.mods ol{margin:0 0 14px 44px;font-size:15px;color:var(--suave)}
 
-/* Instrutor: painel recuado, retrato redondo cortado pela base */
-.painel-sec{padding:20px}
-.painel{position:relative;background:var(--aco);color:#fff;border-radius:var(--raio);overflow:hidden;min-height:min(88svh,720px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:clamp(40px,5vw,72px)}
-.painel h2{color:#fff;max-width:11ch}
-.painel .circulo{position:absolute;left:clamp(40px,5vw,72px);bottom:-14%;width:min(36vw,500px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--t2)}
-.painel .circulo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.painel .lado{grid-column:2;display:flex;flex-direction:column;gap:36px;align-self:center}
-.painel .bloco h3{font-size:22px;margin-bottom:6px}
-.painel .bloco p{color:var(--claro);font-size:17px;max-width:40ch}
-.numeros{display:flex;gap:28px;flex-wrap:wrap}
-.numeros div{font-size:15px;color:var(--claro)}
-.numeros b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(52px,5vw,72px);line-height:.9;color:var(--latao)}
+/* Instrutor */
+.numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 0}
+.numeros div{background:var(--sup);border:1px solid var(--borda);border-radius:14px;padding:16px;text-align:center;font-size:14px;color:var(--suave)}
+.numeros b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(38px,3.6vw,48px);line-height:1;color:var(--latao)}
+.citacao{margin-top:24px;font-family:var(--display);font-size:clamp(28px,2.6vw,36px);line-height:1.05;color:#fff}
+.citacao span{color:var(--latao)}
 
 /* Oferta */
-.oferta{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,56px);align-items:end}
-.oferta h2{grid-column:1/-1}
-.ficha-preco{background:var(--latao);color:var(--noite);border-radius:var(--raio);overflow:hidden;display:flex;flex-direction:column}
-.ficha-preco .topo{padding:clamp(28px,3vw,40px) clamp(28px,3vw,40px) 56px}
-.ficha-preco .nome{font-weight:800;font-size:19px}
-.ficha-preco .lbl{margin-top:22px;font-size:17px}
-.ficha-preco .big{font-family:var(--display);font-size:clamp(84px,9vw,128px);line-height:.85;margin-top:4px}
-.ficha-preco .sub{font-size:17px;margin-top:6px}
-.inclui{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin-top:28px}
-.inclui li{display:flex;gap:12px;align-items:baseline;font-size:16px;line-height:1.4}
-.inclui li::before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:var(--noite);transform:translateY(-1px)}
-.faixa-compra{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--noite);color:var(--latao);text-decoration:none;padding:24px clamp(28px,3vw,40px);font-family:var(--display);font-size:clamp(28px,2.6vw,36px);line-height:1;transition:background-color 160ms ease}
-.faixa-compra svg{width:34px;height:34px;flex:0 0 auto;transition:transform 200ms var(--ease-out)}
-@media (hover:hover) and (pointer:fine){.faixa-compra:hover{background:#0d1d36}.faixa-compra:hover svg{transform:translate(4px,-4px)}}
-.faixa-compra:active{transform:scale(.99)}
-.garantia{display:grid;justify-items:start;gap:22px}
-.selo{width:clamp(150px,14vw,190px);aspect-ratio:1;border-radius:50%;background:#0f7a48;color:#fff;display:grid;place-items:center;text-align:center;font-weight:800;font-size:16px;line-height:1.1}
-.selo b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(64px,6vw,84px);line-height:.85}
-.garantia p{font-size:17px;color:var(--cinza);max-width:40ch}
-.garantia p b{color:var(--tinta)}
-.obs{grid-column:1/-1;font-size:15px;color:var(--cinza);max-width:68ch}
+.oferta{max-width:760px;margin:0 auto;background:linear-gradient(180deg,#132848,#0f1f38);border:2px solid var(--latao);border-radius:24px;padding:clamp(28px,4vw,48px);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 8px rgba(226,174,58,.06)}
+.oferta .nome{text-align:center;font-family:var(--display);font-size:clamp(30px,3vw,38px);line-height:1;color:#fff}
+.oferta .sub{text-align:center;color:var(--suave);font-size:15px;margin-top:6px}
+.inclui{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin:28px 0;padding:24px 0;border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
+.inclui li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.inclui li svg{width:20px;height:20px;flex:0 0 auto;color:var(--ok);margin-top:2px}
+.preco{text-align:center}
+.preco .lbl{color:var(--suave);font-size:16px}
+.preco .big{font-family:var(--display);font-size:clamp(76px,10vw,120px);line-height:.9;color:var(--latao);text-shadow:0 10px 40px rgba(226,174,58,.25)}
+.preco .sub2{color:var(--suave);font-size:16px;margin-top:4px}
+.oferta .btn{width:100%;margin-top:26px}
+.seguro{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 22px;margin-top:16px;font-size:14px;color:var(--suave)}
+.seguro span{display:inline-flex;align-items:center;gap:6px}
+.seguro svg{width:16px;height:16px;color:var(--latao)}
+.garantia{max-width:760px;margin:22px auto 0;display:flex;gap:20px;align-items:center;background:var(--sup);border:1px solid var(--borda);border-radius:var(--raio);padding:22px 26px}
+.selo{flex:0 0 96px;height:96px;border-radius:50%;background:#0f7a48;color:#fff;display:grid;place-items:center;text-align:center;font-weight:800;font-size:12px;line-height:1.05;box-shadow:0 0 0 4px rgba(24,163,93,.25)}
+.selo b{display:block;font-family:var(--display);font-weight:400;font-size:44px;line-height:.85}
+.garantia p{font-size:16px;color:var(--suave)}
+.garantia p b{color:#fff}
+.obs{max-width:760px;margin:18px auto 0;font-size:14px;color:var(--suave);text-align:center}
 
-/* FAQ: fichas de arquivo com aba */
-.fichas{margin-top:48px;max-width:860px}
-.fichas details{position:relative;border-radius:0 var(--raio) var(--raio) var(--raio);padding:0 28px;margin-top:22px}
-.fichas details::before{content:attr(data-aba);position:absolute;top:-34px;left:var(--x,0);height:36px;padding:9px 20px 0;border-radius:16px 16px 0 0;background:inherit;font-weight:800;font-size:14px;line-height:1.4}
-.fichas details:nth-child(3n+1){background:#e4ebf6;--x:0px}
-.fichas details:nth-child(3n+2){background:#d3def0;--x:150px}
-.fichas details:nth-child(3n+3){background:var(--latao-fundo);--x:300px}
-.fichas details+details{margin-top:46px}
-.fichas summary{cursor:pointer;list-style:none;font-weight:750;font-size:clamp(18px,1.6vw,20px);padding:22px 36px 22px 0;position:relative}
-.fichas summary::-webkit-details-marker{display:none}
-.fichas summary .mais{position:absolute;right:0;top:calc(50% - 11px)}
-.fichas details p{padding:0 0 24px;max-width:58ch;color:var(--cinza)}
+/* FAQ */
+.faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--sup);border:1px solid var(--borda);border-radius:16px;transition:border-color 200ms ease}
+.faq details[open]{border-color:var(--borda-ouro)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;font-weight:750;font-size:17px;color:#fff}
+.faq summary::-webkit-details-marker{display:none}
+.faq .seta{width:34px;height:34px}
+.faq details p{padding:0 22px 22px;color:var(--suave);max-width:64ch}
 
-/* Faixa final: a faixa inteira é o botão */
-.fim{display:block;position:relative;background:var(--latao);color:var(--noite);text-decoration:none;min-height:60svh;border-radius:50vw 50vw 0 0/14vw 14vw 0 0;padding:clamp(56px,6vw,96px) var(--margem) 24px;overflow:hidden;transition:background-color 120ms linear,color 120ms linear}
-.fim .frase-fim{font-size:clamp(17px,1.6vw,22px);font-weight:700;max-width:32ch}
-.fim svg{position:absolute;top:clamp(56px,6vw,96px);right:var(--margem);width:clamp(32px,4vw,56px);height:auto}
-.fim .verbo{display:block;font-family:var(--display);font-size:clamp(96px,23vw,340px);line-height:.8;margin-top:clamp(40px,8vw,120px);letter-spacing:-.01em}
-.fim:hover,.fim:focus-visible{background:var(--noite);color:var(--latao)}
-.fim:focus-visible{outline-offset:-6px}
+/* Fechamento */
+.fecho{text-align:center;background:radial-gradient(700px 380px at 50% 0%,rgba(226,174,58,.16),transparent 70%),var(--noite-2);border-top:1px solid var(--borda)}
+.fecho .titulo{max-width:16ch;margin-left:auto;margin-right:auto}
+.fecho .lead{margin:0 auto}
 
-footer{background:var(--noite);color:#8fa0b8;font-size:15px;padding:40px var(--margem) 110px}
-footer p{max-width:72ch}
+footer{background:#040a14;color:#8696ad;font-size:14px;padding:36px 0 110px;text-align:center;border-top:1px solid var(--borda)}
+footer p{max-width:72ch;margin:0 auto}
 footer p+p{margin-top:8px}
 footer a{color:#c8d3e2}
 
 /* Barra de compra no celular */
-.barra{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--noite);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;transform:translateY(110%);transition:transform 250ms var(--ease-out)}
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(7,17,31,.96);border-top:1px solid var(--borda);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;transform:translateY(110%);transition:transform 250ms var(--ease-out)}
 .barra.show{transform:none}
-.barra .btn{width:100%}
+.barra .btn{width:100%;padding:16px 16px 13px}
 
 /* Pop-up da Black Friday */
 .bf{border:0;padding:0;margin:auto;width:min(92vw,620px);max-height:94svh;background:var(--noite);color:#fff;border-radius:var(--raio);overflow:auto;text-align:center}
@@ -228,6 +210,7 @@ footer a{color:#c8d3e2}
 .bf .conhecer{margin-top:16px;font-size:15px;color:var(--claro)}
 @media (max-height:820px){.bf .dentro{padding-top:30px;padding-bottom:22px}.bf .selo-bf{font-size:28px;padding:9px 20px 7px}.bf h2{font-size:44px;margin-top:12px}.bf .de{margin-top:10px}.bf .relogio{margin:16px 0 6px}.bf .relogio div{padding:9px 6px 7px}.bf .relogio b{font-size:34px}.bf .ate{margin-bottom:16px}.bf .btn{padding:18px 20px 15px}.bf .conhecer{margin-top:10px}}
 
+
 /* Movimento */
 @media (prefers-reduced-motion:no-preference){
   .bf[open]{animation:bfEntra 520ms var(--ease-out)}
@@ -240,57 +223,41 @@ footer a{color:#c8d3e2}
   .js .hero.is-in .gauge .foto{clip-path:circle(50% at 50% 50%)}
   .js .hero.is-in .gauge .foto img{transform:none}
   .js .hero.is-in .gauge .mostrador{transform:none;opacity:1}
-  .js [data-in]{opacity:0;transform:translateY(24px);transition:opacity 600ms var(--ease-out),transform 700ms var(--ease-out);transition-delay:calc(var(--i,0) * 80ms)}
+  .js [data-in]{opacity:0;transform:translateY(22px);transition:opacity 600ms var(--ease-out),transform 700ms var(--ease-out);transition-delay:calc(var(--i,0) * 70ms)}
   .js [data-in].is-in{opacity:1;transform:none}
-  .painel .circulo img{animation:respira 14s ease-in-out infinite alternate}
-  @keyframes respira{from{transform:scale(1)}to{transform:scale(1.07)}}
 }
 
-@media (max-width:900px){
-  .metodo{grid-template-columns:1fr}
-  .hero{display:block;min-height:0;padding-bottom:calc(min(130vw,900px) * .62)}
-  .hero-txt{width:100%;max-width:640px;padding-top:48px;padding-bottom:12px}
-  .gauge{width:min(130vw,900px);top:auto;bottom:calc(min(130vw,900px) * -.38);right:auto;left:50%;transform:translateX(-50%)}
-}
 @media (max-width:1000px){
-  .letras{grid-template-columns:repeat(2,1fr)}
-  .inclui{grid-template-columns:1fr}
+  .etapas{grid-template-columns:1fr 1fr}
+  .mestre{grid-template-columns:repeat(3,1fr)}
 }
-@media (max-width:760px){
+@media (max-width:860px){
+  .sec{padding:68px 0}
+  .hero .wrap{grid-template-columns:1fr;min-height:0;gap:28px;padding-top:36px}
+  .gauge{justify-self:center;width:min(86vw,420px)}
+  .duo{grid-template-columns:1fr;gap:36px}
+  .duo .anel{margin:0 auto;max-width:320px}
+  .acao.esq{align-items:stretch;text-align:center}
+  .listas{grid-template-columns:1fr}
+  .mods{grid-template-columns:1fr}
+}
+@media (max-width:620px){
   body{font-size:16px}
-  .nav .mg{height:60px}
+  .wrap{padding:0 18px}
+  .nav .wrap{height:62px}
+  .marca .longo{display:none}
+  .marca{font-size:24px}
   .nav .btn-sm{font-size:17px;padding:10px 16px 8px}
-  .marca{font-size:23px}
-  .marca span.longo{display:none}
-  .hero-txt{padding-top:40px}
-  .hero h1{font-size:clamp(46px,13vw,64px)}
+  .hero h1{font-size:clamp(46px,13vw,60px)}
   .btn:not(.btn-sm){width:100%}
-  .acao{flex-direction:column;align-items:stretch;text-align:center}
-  .pens,.metodo,.duas,.oferta,.cab,.mods{grid-template-columns:1fr}
-  .retrato{max-width:300px;margin:0 auto}
-  .sanfona{flex-direction:column;height:auto}
-  .etapa{flex:none;min-width:0;transition:none}
-  .etapa button{position:relative;height:64px;padding:0 22px}
-  .etapa .nome-v{position:static;transform:none;font-size:26px;display:flex;align-items:center;height:64px}
-  .etapa .corpo{position:static;min-width:0;opacity:1;visibility:visible;display:none;padding:0 22px 26px;pointer-events:auto;grid-template-columns:1fr}
-  .etapa.aberta .corpo{display:grid}
-  .etapa .corpo .foto-etapa{grid-column:1;grid-row:auto;width:140px}
-  .etapa.aberta .nome-v{opacity:1;display:none}
-  .etapa .corpo h3{font-size:40px;margin-bottom:10px}
-  .letras{grid-template-columns:1fr;gap:12px}
-  .letras li{grid-template-columns:52px 1fr}
-  .letras b{width:52px;height:52px;font-size:32px}
-  .letras span{font-size:15px}
-  .painel-sec{padding:10px}
-  .painel{display:flex;flex-direction:column;min-height:0;padding:32px 22px calc(86vw * .78)}
-  .painel .lado{gap:26px}
-  .painel .circulo{width:86vw;left:50%;transform:translateX(-50%);bottom:-22vw}
-  .fichas details{padding:0 20px}
-  .fichas details:nth-child(3n+2){--x:48px}
-  .fichas details:nth-child(3n+3){--x:96px}
-  .fichas details::before{padding:9px 14px 0;font-size:13px}
-  .fim{min-height:46svh;border-radius:50vw 50vw 0 0/18vw 18vw 0 0}
-  .fim .verbo{font-size:24vw;margin-top:48px}
+  .prova div div{padding:20px 6px}
+  .prova span{font-size:13px}
+  .etapas{grid-template-columns:1fr}
+  .mestre{grid-template-columns:1fr 1fr}
+  .inclui{grid-template-columns:1fr}
+  .numeros div{padding:12px 6px;font-size:12px}
+  .garantia{flex-direction:column;text-align:center}
+  .grade>summary,.mods{padding-left:20px;padding-right:20px}
   .barra{display:block}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.barra,.etapa{transition:none}}
@@ -301,7 +268,7 @@ footer a{color:#c8d3e2}
 <div class="promobar" id="promobar" hidden></div>
 
 <header class="nav">
-  <div class="mg">
+  <div class="wrap">
     <a class="marca" href="#topo" aria-label="Engenheiro Autônomo NR13, início">
       <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#e2ae3a"/><circle cx="16" cy="16" r="11" fill="#07111f"/><path d="M16 16 L23 10" stroke="#e2ae3a" stroke-width="3" stroke-linecap="round"/></svg>
       <span><span class="longo">Engenheiro Autônomo </span>NR13</span>
@@ -312,201 +279,213 @@ footer a{color:#c8d3e2}
 
 <main id="topo">
 
-<!-- 1. HERO -->
-<section class="hero mg" id="hero">
-  <div class="hero-txt">
-    <h1 class="d" data-in>Transforme NR-13 <span>em faturamento</span></h1>
-    <p class="txt" data-in style="--i:1">Você não estudou 5 anos de engenharia para ficar esperando uma vaga. Aprenda a prestar serviços de NR-13 em caldeiras e vasos de pressão <b>por conta própria</b>, do primeiro cliente ao relatório com ART.</p>
-    <div class="acao" data-in style="--i:2">
-      <a class="btn" href="#oferta">Quero minha nova fonte de renda</a>
-      <small>12 módulos, 65 aulas e 7 dias de garantia</small>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div>
+      <p class="selo-topo" data-in><span></span><em style="font-style:normal"><b>Vitor Mendes</b>, engenheiro mecânico NR&#8209;13</em></p>
+      <h1 class="d" data-in style="--i:1">Transforme <span class="nb">NR&#8209;13</span><br><span class="ouro">em faturamento</span></h1>
+      <p class="lead" data-in style="--i:2">Você não estudou 5 anos de engenharia para ficar esperando uma vaga. Aprenda a prestar serviços de NR-13 em caldeiras e vasos de pressão <b>por conta própria</b>, do primeiro cliente ao relatório com ART.</p>
+      <div class="acao esq" data-in style="--i:3">
+        <a class="btn" href="#oferta">Quero minha nova fonte de renda</a>
+        <small>12 módulos, 65 aulas e 7 dias de garantia</small>
+      </div>
     </div>
-  </div>
-  <div class="gauge">
-    <svg class="mostrador" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><circle cx="500" cy="500" r="500" fill="var(--latao)"/><circle cx="500" cy="500" r="392" fill="var(--noite)"/><path d="M922.7 533.3 A424 424 0 0 1 799.8 799.8" fill="none" stroke="var(--alerta)" stroke-width="22"/><line x1="215.7" y1="784.3" x2="183.2" y2="816.8" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="164.8" y="835.2" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">0</text><line x1="192.0" y1="773.7" x2="177.1" y2="787.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="176.4" y1="755.1" x2="160.7" y2="767.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="162.0" y1="735.6" x2="145.6" y2="747.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="148.7" y1="715.3" x2="131.7" y2="725.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="140.2" y1="692.3" x2="112.0" y2="707.4" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="125.8" y1="672.5" x2="107.7" y2="680.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="116.3" y1="650.2" x2="97.7" y2="657.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="108.2" y1="627.3" x2="89.1" y2="633.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="101.3" y1="604.0" x2="82.0" y2="609.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="105.7" y1="578.4" x2="60.6" y2="587.4" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="35.1" y="592.5" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">2</text><line x1="91.9" y1="556.4" x2="72.1" y2="559.2" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="89.3" y1="532.3" x2="69.3" y2="533.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="88.1" y1="508.1" x2="68.1" y2="508.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="88.3" y1="483.8" x2="68.3" y2="483.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="94.0" y1="460.0" x2="62.1" y2="456.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="93.1" y1="435.5" x2="73.3" y2="432.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="97.6" y1="411.7" x2="78.0" y2="407.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="103.5" y1="388.2" x2="84.2" y2="382.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="110.7" y1="365.0" x2="91.8" y2="358.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="128.6" y1="346.2" x2="86.1" y2="328.6" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="62.1" y="318.6" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">4</text><line x1="129.3" y1="320.2" x2="111.3" y2="311.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="140.5" y1="298.7" x2="123.1" y2="288.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="153.0" y1="277.9" x2="136.2" y2="267.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="166.7" y1="257.8" x2="150.5" y2="246.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="184.6" y1="241.2" x2="159.9" y2="220.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="197.5" y1="220.3" x2="182.8" y2="206.8" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="214.4" y1="203.0" x2="200.6" y2="188.6" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="232.4" y1="186.7" x2="219.4" y2="171.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="251.3" y1="171.5" x2="239.3" y2="155.6" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="276.7" y1="165.7" x2="251.1" y2="127.5" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="236.7" y="105.9" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">6</text><line x1="291.7" y1="144.6" x2="281.6" y2="127.3" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="313.0" y1="132.9" x2="303.9" y2="115.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="334.9" y1="122.5" x2="326.9" y2="104.2" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="357.4" y1="113.5" x2="350.5" y2="94.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="381.6" y1="109.6" x2="372.3" y2="78.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="403.8" y1="99.4" x2="399.2" y2="79.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="427.6" y1="94.4" x2="424.1" y2="74.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="451.6" y1="90.9" x2="449.2" y2="71.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="475.7" y1="88.7" x2="474.6" y2="68.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="500.0" y1="98.0" x2="500.0" y2="52.0" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="500.0" y="26.0" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">8</text><line x1="524.3" y1="88.7" x2="525.4" y2="68.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="548.4" y1="90.9" x2="550.8" y2="71.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="572.4" y1="94.4" x2="575.9" y2="74.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="596.2" y1="99.4" x2="600.8" y2="79.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="618.4" y1="109.6" x2="627.7" y2="78.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="642.6" y1="113.5" x2="649.5" y2="94.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="665.1" y1="122.5" x2="673.1" y2="104.2" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="687.0" y1="132.9" x2="696.1" y2="115.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="708.3" y1="144.6" x2="718.4" y2="127.3" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="723.3" y1="165.7" x2="748.9" y2="127.5" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="763.3" y="105.9" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">10</text><line x1="748.7" y1="171.5" x2="760.7" y2="155.6" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="767.6" y1="186.7" x2="780.6" y2="171.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="785.6" y1="203.0" x2="799.4" y2="188.6" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="802.5" y1="220.3" x2="817.2" y2="206.8" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="815.4" y1="241.2" x2="840.1" y2="220.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="833.3" y1="257.8" x2="849.5" y2="246.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="847.0" y1="277.9" x2="863.8" y2="267.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="859.5" y1="298.7" x2="876.9" y2="288.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="870.7" y1="320.2" x2="888.7" y2="311.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="871.4" y1="346.2" x2="913.9" y2="328.6" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="937.9" y="318.6" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">12</text><line x1="889.3" y1="365.0" x2="908.2" y2="358.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="896.5" y1="388.2" x2="915.8" y2="382.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="902.4" y1="411.7" x2="922.0" y2="407.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="906.9" y1="435.5" x2="926.7" y2="432.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="906.0" y1="460.0" x2="937.9" y2="456.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="911.7" y1="483.8" x2="931.7" y2="483.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="911.9" y1="508.1" x2="931.9" y2="508.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="910.7" y1="532.3" x2="930.7" y2="533.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="908.1" y1="556.4" x2="927.9" y2="559.2" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="894.3" y1="578.4" x2="939.4" y2="587.4" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="964.9" y="592.5" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">14</text><line x1="898.7" y1="604.0" x2="918.0" y2="609.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="891.8" y1="627.3" x2="910.9" y2="633.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="883.7" y1="650.2" x2="902.3" y2="657.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="874.2" y1="672.5" x2="892.3" y2="680.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="859.8" y1="692.3" x2="888.0" y2="707.4" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="851.3" y1="715.3" x2="868.3" y2="725.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="838.0" y1="735.6" x2="854.4" y2="747.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="823.6" y1="755.1" x2="839.3" y2="767.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="808.0" y1="773.7" x2="822.9" y2="787.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="784.3" y1="784.3" x2="816.8" y2="816.8" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="835.2" y="835.2" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">16</text></svg>
-    <div class="foto"><img src="/img/vitor-circulo.webp" width="640" height="640" alt="Vitor Mendes, engenheiro mecânico especialista em NR-13" fetchpriority="high"></div>
+    <div class="gauge">
+      <svg class="mostrador" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><circle cx="500" cy="500" r="500" fill="var(--latao)"/><circle cx="500" cy="500" r="392" fill="var(--noite)"/><path d="M922.7 533.3 A424 424 0 0 1 799.8 799.8" fill="none" stroke="var(--alerta)" stroke-width="22"/><line x1="215.7" y1="784.3" x2="183.2" y2="816.8" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="164.8" y="835.2" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">0</text><line x1="192.0" y1="773.7" x2="177.1" y2="787.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="176.4" y1="755.1" x2="160.7" y2="767.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="162.0" y1="735.6" x2="145.6" y2="747.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="148.7" y1="715.3" x2="131.7" y2="725.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="140.2" y1="692.3" x2="112.0" y2="707.4" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="125.8" y1="672.5" x2="107.7" y2="680.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="116.3" y1="650.2" x2="97.7" y2="657.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="108.2" y1="627.3" x2="89.1" y2="633.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="101.3" y1="604.0" x2="82.0" y2="609.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="105.7" y1="578.4" x2="60.6" y2="587.4" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="35.1" y="592.5" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">2</text><line x1="91.9" y1="556.4" x2="72.1" y2="559.2" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="89.3" y1="532.3" x2="69.3" y2="533.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="88.1" y1="508.1" x2="68.1" y2="508.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="88.3" y1="483.8" x2="68.3" y2="483.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="94.0" y1="460.0" x2="62.1" y2="456.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="93.1" y1="435.5" x2="73.3" y2="432.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="97.6" y1="411.7" x2="78.0" y2="407.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="103.5" y1="388.2" x2="84.2" y2="382.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="110.7" y1="365.0" x2="91.8" y2="358.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="128.6" y1="346.2" x2="86.1" y2="328.6" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="62.1" y="318.6" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">4</text><line x1="129.3" y1="320.2" x2="111.3" y2="311.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="140.5" y1="298.7" x2="123.1" y2="288.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="153.0" y1="277.9" x2="136.2" y2="267.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="166.7" y1="257.8" x2="150.5" y2="246.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="184.6" y1="241.2" x2="159.9" y2="220.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="197.5" y1="220.3" x2="182.8" y2="206.8" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="214.4" y1="203.0" x2="200.6" y2="188.6" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="232.4" y1="186.7" x2="219.4" y2="171.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="251.3" y1="171.5" x2="239.3" y2="155.6" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="276.7" y1="165.7" x2="251.1" y2="127.5" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="236.7" y="105.9" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">6</text><line x1="291.7" y1="144.6" x2="281.6" y2="127.3" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="313.0" y1="132.9" x2="303.9" y2="115.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="334.9" y1="122.5" x2="326.9" y2="104.2" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="357.4" y1="113.5" x2="350.5" y2="94.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="381.6" y1="109.6" x2="372.3" y2="78.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="403.8" y1="99.4" x2="399.2" y2="79.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="427.6" y1="94.4" x2="424.1" y2="74.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="451.6" y1="90.9" x2="449.2" y2="71.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="475.7" y1="88.7" x2="474.6" y2="68.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="500.0" y1="98.0" x2="500.0" y2="52.0" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="500.0" y="26.0" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">8</text><line x1="524.3" y1="88.7" x2="525.4" y2="68.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="548.4" y1="90.9" x2="550.8" y2="71.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="572.4" y1="94.4" x2="575.9" y2="74.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="596.2" y1="99.4" x2="600.8" y2="79.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="618.4" y1="109.6" x2="627.7" y2="78.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="642.6" y1="113.5" x2="649.5" y2="94.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="665.1" y1="122.5" x2="673.1" y2="104.2" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="687.0" y1="132.9" x2="696.1" y2="115.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="708.3" y1="144.6" x2="718.4" y2="127.3" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="723.3" y1="165.7" x2="748.9" y2="127.5" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="763.3" y="105.9" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">10</text><line x1="748.7" y1="171.5" x2="760.7" y2="155.6" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="767.6" y1="186.7" x2="780.6" y2="171.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="785.6" y1="203.0" x2="799.4" y2="188.6" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="802.5" y1="220.3" x2="817.2" y2="206.8" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="815.4" y1="241.2" x2="840.1" y2="220.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="833.3" y1="257.8" x2="849.5" y2="246.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="847.0" y1="277.9" x2="863.8" y2="267.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="859.5" y1="298.7" x2="876.9" y2="288.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="870.7" y1="320.2" x2="888.7" y2="311.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="871.4" y1="346.2" x2="913.9" y2="328.6" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="937.9" y="318.6" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">12</text><line x1="889.3" y1="365.0" x2="908.2" y2="358.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="896.5" y1="388.2" x2="915.8" y2="382.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="902.4" y1="411.7" x2="922.0" y2="407.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="906.9" y1="435.5" x2="926.7" y2="432.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="906.0" y1="460.0" x2="937.9" y2="456.9" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="911.7" y1="483.8" x2="931.7" y2="483.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="911.9" y1="508.1" x2="931.9" y2="508.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="910.7" y1="532.3" x2="930.7" y2="533.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="908.1" y1="556.4" x2="927.9" y2="559.2" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="894.3" y1="578.4" x2="939.4" y2="587.4" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="964.9" y="592.5" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">14</text><line x1="898.7" y1="604.0" x2="918.0" y2="609.1" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="891.8" y1="627.3" x2="910.9" y2="633.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="883.7" y1="650.2" x2="902.3" y2="657.5" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="874.2" y1="672.5" x2="892.3" y2="680.9" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="859.8" y1="692.3" x2="888.0" y2="707.4" stroke="var(--noite)" stroke-width="4" stroke-linecap="round"/><line x1="851.3" y1="715.3" x2="868.3" y2="725.7" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="838.0" y1="735.6" x2="854.4" y2="747.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="823.6" y1="755.1" x2="839.3" y2="767.4" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="808.0" y1="773.7" x2="822.9" y2="787.0" stroke="var(--noite)" stroke-width="2.5" stroke-linecap="round"/><line x1="784.3" y1="784.3" x2="816.8" y2="816.8" stroke="var(--noite)" stroke-width="7" stroke-linecap="round"/><text x="835.2" y="835.2" font-size="40" text-anchor="middle" dominant-baseline="central" fill="var(--noite)" font-family="Bebas Neue, sans-serif">16</text></svg>
+      <div class="foto"><img src="/img/vitor-circulo.webp" width="640" height="640" alt="Vitor Mendes, engenheiro mecânico especialista em NR-13" fetchpriority="high"></div>
+    </div>
   </div>
 </section>
 
-<!-- 2. PENSAMENTOS -->
-<section class="sec papel mg">
-  <div class="pens">
-    <div class="retrato" data-in><img src="/img/vitor-mesa.webp" width="520" height="971" loading="lazy" decoding="async" alt="Vitor Mendes pensativo, à mesa com livros de caldeiras, vasos de pressão e NR-13"></div>
+<div class="prova" aria-label="Experiência do instrutor">
+  <div class="wrap">
+    <div><b>+150</b><span>empresas atendidas</span></div>
+    <div><b>+500</b><span>vasos de pressão</span></div>
+    <div><b>+600</b><span>alunos treinados</span></div>
+  </div>
+</div>
+
+<!-- DORES -->
+<section class="sec">
+  <div class="wrap duo">
+    <div class="anel" data-in><img src="/img/vitor-mesa.webp" width="520" height="971" loading="lazy" decoding="async" alt="Vitor Mendes pensativo, à mesa com livros de caldeiras, vasos de pressão e NR-13" style="object-position:50% 18%"></div>
     <div>
-      <h2 class="d" data-in style="--i:1">Pensamentos que te travam</h2>
+      <h2 class="d titulo" data-in style="--i:1">Pensamentos que <span class="ouro">te travam</span></h2>
       <ul class="falas">
-        <li data-in style="--i:2">Estudei 5 anos de cálculo pra ganhar isso?</li>
-        <li data-in style="--i:3">Meu CREA está na gaveta servindo pra quê?</li>
-        <li data-in style="--i:4">Gente da minha turma já está faturando, e eu aqui.</li>
-        <li data-in style="--i:5">E se eu assinar uma ART e der problema?</li>
-        <li data-in style="--i:6">Quanto eu cobro? Caro, perco. Barato, me queimo.</li>
+        <li data-in style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Estudei 5 anos de cálculo pra ganhar isso?”</li>
+        <li data-in style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Meu CREA está na gaveta servindo pra quê?”</li>
+        <li data-in style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“E se eu assinar uma ART e der problema?”</li>
+        <li data-in style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Quanto eu cobro? Caro, perco. Barato, me queimo.”</li>
       </ul>
-      <p class="virada" data-in style="--i:7">A faculdade te ensinou a calcular. <span>Ninguém te ensinou a faturar.</span></p>
-      <div class="acao" data-in style="--i:8">
+      <p class="virada" data-in style="--i:6">A faculdade te ensinou a calcular. <span class="ouro">Ninguém te ensinou a faturar.</span></p>
+      <div class="acao esq" data-in style="--i:7">
         <a class="btn" href="#oferta">Quero sair desse ciclo</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3. A VIRADA E O CAMINHO -->
-<section class="sec escuro mg">
-  <p class="frase" data-in>Toda empresa com caldeira <span class="mini"><img src="/img/manometro.webp" width="120" height="120" alt="" loading="lazy"></span> ou reservatório de ar <span class="mini"><img src="/img/campo-tubulacao.webp" width="240" height="145" alt="" loading="lazy"></span> precisa de inspeção NR-13 <span class="mini"><img src="/img/livros-nr13.webp" width="240" height="158" alt="" loading="lazy"></span>. Quem assina é um engenheiro. Pode ser você.</p>
-  <div class="cab">
-    <h2 class="d" data-in>O caminho em 4 etapas</h2>
-    <p class="txt" data-in style="--i:1">Da primeira oportunidade à entrega. Toque em cada etapa para ver o que você aprende nela.</p>
-  </div>
-  <ol class="sanfona" id="sanfona" data-in style="--i:2">
-    <li class="etapa aberta">
-      <button type="button" aria-expanded="true"><span class="nome-v">Identificar</span></button>
-      <div class="corpo"><h3>Identificar oportunidades</h3><div><p>Onde está a demanda de NR-13 na sua região e quais serviços fazem sentido para quem está começando.</p><ul class="marcas"><li>Mercado da NR-13 para o engenheiro mecânico</li><li>Papel do PLH, do CREA e da ART</li><li>Serviços de entrada e limites de atuação</li></ul></div><div class="foto-etapa"><img src="/img/vitor-bracos.webp" width="520" height="520" loading="lazy" decoding="async" alt="Vitor Mendes de braços cruzados, em escritório"></div></div>
-    </li>
-    <li class="etapa">
-      <button type="button" aria-expanded="false"><span class="nome-v">Montar</span></button>
-      <div class="corpo"><h3>Montar o serviço</h3><div><p>Enquadramento, escopo, documentação e responsabilidades, para você saber exatamente o que entrega.</p><ul class="marcas"><li>Produto P × V, categoria e grupo de risco</li><li>Caldeiras e vasos de pressão de ar comprimido</li><li>Prontuário, inventário e vencimentos</li></ul></div><div class="foto-etapa"><img src="/img/livros-nr13-g.webp" width="380" height="272" loading="lazy" decoding="async" alt="Livros de caldeiras, vasos de pressão e NR-13 sobre a mesa"></div></div>
-    </li>
-    <li class="etapa">
-      <button type="button" aria-expanded="false"><span class="nome-v">Vender</span></button>
-      <div class="corpo"><h3>Vender</h3><div><p>Abordagem, proposta comercial e preço calculado com custos, risco e margem. Sem chute.</p><ul class="marcas"><li>Escolha do cliente inicial</li><li>Proposta comercial profissional</li><li>Plano de 30 dias para os primeiros clientes</li></ul></div><div class="foto-etapa"><img src="/img/vitor-circulo.webp" width="640" height="640" loading="lazy" decoding="async" alt="Retrato de Vitor Mendes"></div></div>
-    </li>
-    <li class="etapa">
-      <button type="button" aria-expanded="false"><span class="nome-v">Entregar</span></button>
-      <div class="corpo"><h3>Entregar</h3><div><p>Campo, evidências, relatório e ART, com recorrência a cada vencimento.</p><ul class="marcas"><li>Inspeção de reservatório e de caldeira na prática</li><li>Manômetro e válvula de segurança em bancada</li><li>Emissão de ART do escopo ao registro</li></ul></div><div class="foto-etapa"><img src="/img/vitor-campo.webp" width="460" height="880" loading="lazy" decoding="async" alt="Vitor Mendes em campo, ao lado de um vaso de pressão"></div></div>
-    </li>
-  </ol>
-  <div class="acao" data-in>
-    <a class="btn" href="#oferta">Quero aprender esse caminho</a>
-    <small>Você não precisa abandonar a engenharia. Precisa aprender a usá-la.</small>
+<!-- CAMINHO -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="frase-nr" data-in><img src="/img/manometro.webp" width="120" height="120" alt="" loading="lazy"> Toda empresa com caldeira ou reservatório de ar precisa de inspeção NR-13. Quem assina é um engenheiro.</p>
+      <h2 class="d titulo" data-in style="--i:1">O caminho em <span class="ouro">4 etapas</span></h2>
+      <p class="lead" data-in style="--i:2">Da primeira oportunidade à entrega do relatório. Você não precisa abandonar a engenharia, precisa aprender a usá-la.</p>
+    </div>
+    <ol class="etapas">
+      <li class="etapa" data-in><h3>Identificar</h3><p>Onde está a demanda de NR-13 e quais serviços fazem sentido para começar.</p><ul><li>Mercado da NR-13</li><li>PLH, CREA e ART</li><li>Limites de atuação</li></ul></li>
+      <li class="etapa" data-in style="--i:1"><h3>Montar o serviço</h3><p>Enquadramento, escopo e documentação para saber o que entregar.</p><ul><li>P × V e categoria</li><li>Caldeiras e vasos</li><li>Prontuário e prazos</li></ul></li>
+      <li class="etapa" data-in style="--i:2"><h3>Vender</h3><p>Abordagem, proposta e preço calculado com custos, risco e margem.</p><ul><li>Cliente inicial</li><li>Proposta comercial</li><li>Plano de 30 dias</li></ul></li>
+      <li class="etapa" data-in style="--i:3"><h3>Entregar</h3><p>Campo, evidências, relatório e ART, com recorrência a cada vencimento.</p><ul><li>Reservatório e caldeira</li><li>Bancada de manômetro</li><li>Válvula de segurança</li></ul></li>
+    </ol>
+    <div class="acao" data-in>
+      <a class="btn" href="#oferta">Quero aprender esse caminho</a>
+    </div>
   </div>
 </section>
 
-<!-- 4. MÉTODO E CONTEÚDO -->
-<section class="sec mg" id="conteudo">
-  <div class="metodo">
-    <div>
-      <h2 class="d" data-in>Método MESTRE NR13</h2>
-      <p class="txt" data-in style="--i:1">Direto ao essencial para caldeiras e vasos de pressão de ar comprimido, onde está a demanda de entrada. Sem enciclopédia de códigos.</p>
+<!-- MÉTODO E CONTEÚDO -->
+<section class="sec" id="conteudo">
+  <div class="wrap">
+    <div class="cabeca">
+      <h2 class="d titulo" data-in>Método <span class="ouro">M.E.S.T.R.E.</span> NR13</h2>
+      <p class="lead" data-in style="--i:1">Direto ao essencial para caldeiras e vasos de pressão de ar comprimido, onde está a demanda de entrada.</p>
     </div>
-    <ul class="letras">
-      <li data-in style="--i:1"><b>M</b><span>Mercado e limites de atuação</span></li>
-      <li data-in style="--i:2"><b>E</b><span>Enquadramento dos equipamentos</span></li>
-      <li data-in style="--i:3"><b>S</b><span>Segurança e documentação</span></li>
-      <li data-in style="--i:4"><b>T</b><span>Trabalho de campo</span></li>
-      <li data-in style="--i:5"><b>R</b><span>Relatório e regularização</span></li>
-      <li data-in style="--i:6"><b>E</b><span>Entrada no mercado e escala</span></li>
+    <ul class="mestre">
+      <li data-in><b>M</b><span>Mercado e limites</span></li>
+      <li data-in style="--i:1"><b>E</b><span>Enquadramento</span></li>
+      <li data-in style="--i:2"><b>S</b><span>Segurança e documentação</span></li>
+      <li data-in style="--i:3"><b>T</b><span>Trabalho de campo</span></li>
+      <li data-in style="--i:4"><b>R</b><span>Relatório e regularização</span></li>
+      <li data-in style="--i:5"><b>E</b><span>Entrada e escala</span></li>
     </ul>
-  </div>
-  <div class="duas">
-    <div data-in>
-      <h3>O que você domina</h3>
-      <ul class="pontos">
-        <li>Enquadramento por P × V, classe de fluido e categoria</li>
-        <li>Requisitos, dispositivos e prazos de caldeiras e vasos</li>
-        <li>Inspeção, evidências, relatório e vencimentos</li>
-        <li>Proposta, ART e precificação sem chute</li>
-      </ul>
-    </div>
-    <div data-in style="--i:1">
-      <h3>Casos reais gravados</h3>
-      <ul class="pontos">
-        <li>Emissão de ART na prática</li>
-        <li>Inspeção de reservatório de ar comprimido</li>
-        <li>Inspeção de caldeira</li>
-        <li>Manômetro e válvula de segurança em bancada</li>
-      </ul>
-    </div>
-  </div>
-  <details class="grade" data-in>
-    <summary>Ver a grade completa: 12 módulos e 65 aulas <span class="mais" aria-hidden="true"></span></summary>
-    <div class="mods" id="modules"></div>
-  </details>
-  <div class="acao" data-in>
-    <a class="btn" href="#oferta">Quero acesso a todo o conteúdo</a>
-  </div>
-</section>
-
-<!-- 5. INSTRUTOR -->
-<section class="painel-sec">
-  <div class="painel">
-    <div>
-      <h2 class="d" data-in>Aprendi fazendo</h2>
-    </div>
-    <div class="lado">
-      <div class="bloco" data-in style="--i:1">
-        <h3>Vitor Mendes, engenheiro mecânico</h3>
-        <p>Campo, empresas, treinamento e prestação de serviços em NR-13 fazem parte da minha rotina. Já estive do lado de quem não sabia por onde começar, e foi fazendo que construí este método.</p>
-      </div>
-      <div class="numeros" data-in style="--i:2">
-        <div><b>+150</b>empresas atendidas</div>
-        <div><b>+500</b>vasos de pressão</div>
-        <div><b>+600</b>alunos treinados</div>
-      </div>
-      <div data-in style="--i:3"><a class="btn" href="#oferta">Quero aprender com o Vitor</a></div>
-    </div>
-    <div class="circulo"><img src="/img/vitor-campo.webp" width="460" height="880" loading="lazy" decoding="async" alt="Vitor Mendes em campo, de capacete e óculos, ao lado de um vaso de pressão"></div>
-  </div>
-</section>
-
-<!-- 6. OFERTA -->
-<section class="sec papel mg" id="oferta">
-  <div class="oferta">
-    <h2 class="d" data-in>Sua vaga no programa</h2>
-    <div class="ficha-preco" data-in style="--i:1">
-      <div class="topo">
-        <div class="nome">Programa Engenheiro Autônomo NR13</div>
-        <div class="lbl" data-cfg="priceLabel" style="min-height:0"></div>
-        <div class="big" data-cfg="priceMain"></div>
-        <div class="sub" data-cfg="priceSub"></div>
-        <ul class="inclui">
-          <li>12 módulos e 65 aulas</li>
-          <li>Casos reais de campo e bancada</li>
-          <li>Modelo de proposta comercial</li>
-          <li>Calculadora de preço</li>
-          <li>Planilha de clientes e vencimentos</li>
-          <li>Plano de 30 dias para clientes</li>
-          <li>Suporte por e-mail</li>
-          <li>Certificado de conclusão</li>
+    <div class="listas">
+      <div class="lista" data-in>
+        <h3>O que você domina</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Enquadramento por P × V, classe de fluido e categoria</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Requisitos, dispositivos e prazos de caldeiras e vasos</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inspeção, evidências, relatório e vencimentos</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Proposta, ART e precificação sem chute</li>
         </ul>
       </div>
-      <a class="faixa-compra" href="#" data-checkout>Sim, quero me inscrever <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lista" data-in style="--i:1">
+        <h3>Casos reais gravados</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Emissão de ART na prática</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inspeção de reservatório de ar comprimido</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inspeção de caldeira</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Manômetro e válvula de segurança em bancada</li>
+        </ul>
+      </div>
     </div>
-    <div class="garantia" data-in style="--i:2">
-      <div class="selo"><div><b>7</b>dias de<br>garantia</div></div>
+    <details class="grade" data-in>
+      <summary><span>Ver a grade completa<small>12 módulos e 65 aulas. Toque para abrir</small></span><span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+      <div class="mods" id="modules"></div>
+    </details>
+    <div class="acao" data-in>
+      <a class="btn" href="#oferta">Quero acesso a todo o conteúdo</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUTOR -->
+<section class="sec alt">
+  <div class="wrap duo">
+    <div class="anel" data-in><img src="/img/vitor-campo.webp" width="460" height="880" loading="lazy" decoding="async" alt="Vitor Mendes em campo, de capacete e óculos, ao lado de um vaso de pressão" style="object-position:50% 22%"></div>
+    <div>
+      <h2 class="d titulo" data-in style="--i:1">Quem vai <span class="ouro">te ensinar</span></h2>
+      <p class="lead" data-in style="--i:2">Sou <b>Vitor Mendes</b>, engenheiro mecânico. Campo, empresas, treinamento e prestação de serviços em NR-13 fazem parte da minha rotina. Já estive do lado de quem não sabia por onde começar, e foi fazendo que construí este método.</p>
+      <div class="numeros" data-in style="--i:3">
+        <div><b>+150</b>empresas</div>
+        <div><b>+500</b>vasos de pressão</div>
+        <div><b>+600</b>alunos</div>
+      </div>
+      <p class="citacao" data-in style="--i:4">Eu não ensino só na teoria. <span>Ensino o que aprendi fazendo.</span></p>
+      <div class="acao esq" data-in style="--i:5">
+        <a class="btn" href="#oferta">Quero aprender com o Vitor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="sec" id="oferta">
+  <div class="wrap">
+    <div class="cabeca">
+      <h2 class="d titulo" data-in>Sua vaga <span class="ouro">no programa</span></h2>
+    </div>
+    <div class="oferta" data-in>
+      <div class="nome">Programa Engenheiro Autônomo NR13</div>
+      <p class="sub">Acesso pela área de membros da Hotmart</p>
+      <ul class="inclui">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>12 módulos e 65 aulas</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Casos reais de campo e bancada</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Modelo de proposta comercial</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Calculadora de formação de preço</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Planilha de clientes e vencimentos</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Plano de 30 dias para clientes</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Suporte por e-mail</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Certificado de conclusão</li>
+      </ul>
+      <div class="preco">
+        <div class="lbl" data-cfg="priceLabel"></div>
+        <div class="big" data-cfg="priceMain"></div>
+        <div class="sub2" data-cfg="priceSub"></div>
+      </div>
+      <a class="btn" href="#" data-checkout>Sim, quero me inscrever</a>
+      <div class="seguro">
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></svg>Compra segura Hotmart</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>Cartão, Pix ou boleto</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Acesso imediato</span>
+      </div>
+    </div>
+    <div class="garantia" data-in>
+      <div class="selo"><div><b>7</b>DIAS DE<br>GARANTIA</div></div>
       <p><b>Risco zero.</b> Entre, assista às aulas e baixe os materiais. Se em até 7 dias não for para você, peça o reembolso pela Hotmart e receba 100% de volta.</p>
-      <p>Pagamento seguro pela Hotmart, no cartão em até 12x, Pix ou boleto.</p>
     </div>
     <p class="obs">Um único contrato de inspeção pode pagar o programa, dependendo do escopo e da região. É uma possibilidade, não uma garantia de resultado. O software InspectorPRO é opcional e vendido à parte.</p>
   </div>
 </section>
 
-<!-- 7. PERGUNTAS -->
-<section class="sec mg">
-  <h2 class="d" data-in>Antes de decidir</h2>
-  <div class="fichas">
-    <details name="faq" data-aba="Experiência" open><summary>Posso começar sem experiência em NR-13? <span class="mais" aria-hidden="true"></span></summary><p>Sim. O programa foi feito para quem tem pouca ou nenhuma vivência em NR-13 e começa pelo mercado e pelos limites de atuação.</p></details>
-    <details name="faq" data-aba="CREA e PLH"><summary>O curso me transforma em PLH? <span class="mais" aria-hidden="true"></span></summary><p>Não. O certificado é de curso livre e não amplia atribuições no CREA. No Módulo 01 você aprende o papel do PLH, do CREA e da ART e como avaliar o que as suas atribuições permitem.</p></details>
-    <details name="faq" data-aba="Normas"><summary>Preciso saber ASME e API antes? <span class="mais" aria-hidden="true"></span></summary><p>Não para começar. O foco é o essencial de caldeiras e vasos de pressão de ar comprimido. ASME, API e cálculos avançados ficam como próximos passos.</p></details>
-    <details name="faq" data-aba="Clientes"><summary>Vou aprender a cobrar e a conseguir clientes? <span class="mais" aria-hidden="true"></span></summary><p>Sim. O Módulo 07 cobre escopo, proposta, ART e precificação, e o Módulo 09 fecha com um plano de 30 dias para os primeiros clientes.</p></details>
-    <details name="faq" data-aba="Resultado"><summary>O faturamento é garantido? <span class="mais" aria-hidden="true"></span></summary><p>Não. O resultado depende da sua aplicação, prospecção, preço, região e atribuições. O programa entrega o caminho, as ferramentas e a sequência de execução.</p></details>
-    <details name="faq" data-aba="Acesso"><summary>Como funcionam o acesso e a garantia? <span class="mais" aria-hidden="true"></span></summary><p>O acesso é liberado após a confirmação do pagamento, seguindo as regras de liberação da turma. Você tem 7 dias para pedir o reembolso integral pela Hotmart.</p></details>
-  </div>
-  <div class="acao" data-in>
-    <a class="btn" href="#oferta">Tirei minhas dúvidas, quero entrar</a>
+<!-- FAQ -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="cabeca">
+      <h2 class="d titulo" data-in>Perguntas <span class="ouro">frequentes</span></h2>
+    </div>
+    <div class="faq">
+      <details name="faq" open><summary>Posso começar sem experiência em NR-13?<span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><p>Sim. O programa foi feito para quem tem pouca ou nenhuma vivência em NR-13 e começa pelo mercado e pelos limites de atuação.</p></details>
+      <details name="faq"><summary>O curso me transforma em PLH?<span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><p>Não. O certificado é de curso livre e não amplia atribuições no CREA. No Módulo 01 você aprende o papel do PLH, do CREA e da ART e como avaliar o que as suas atribuições permitem.</p></details>
+      <details name="faq"><summary>Preciso saber ASME e API antes?<span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><p>Não para começar. O foco é o essencial de caldeiras e vasos de pressão de ar comprimido. ASME, API e cálculos avançados ficam como próximos passos.</p></details>
+      <details name="faq"><summary>Vou aprender a cobrar e a conseguir clientes?<span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><p>Sim. O Módulo 07 cobre escopo, proposta, ART e precificação, e o Módulo 09 fecha com um plano de 30 dias para os primeiros clientes.</p></details>
+      <details name="faq"><summary>O faturamento é garantido?<span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><p>Não. O resultado depende da sua aplicação, prospecção, preço, região e atribuições. O programa entrega o caminho, as ferramentas e a sequência de execução.</p></details>
+      <details name="faq"><summary>Como funcionam o acesso e a garantia?<span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary><p>O acesso é liberado após a confirmação do pagamento, seguindo as regras de liberação da turma. Você tem 7 dias para pedir o reembolso integral pela Hotmart.</p></details>
+    </div>
   </div>
 </section>
 
-<!-- 8. FAIXA FINAL -->
-<a class="fim" href="#" data-checkout aria-label="Começar agora: ir para a inscrição na Hotmart">
-  <span class="frase-fim">Daqui a um ano, você vai querer ter começado hoje. Inscrição pela Hotmart, com 7 dias de garantia.</span>
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <span class="verbo">Começar</span>
-</a>
+<!-- FECHAMENTO -->
+<section class="sec fecho">
+  <div class="wrap">
+    <h2 class="d titulo" data-in>Daqui a um ano, você vai querer <span class="ouro">ter começado hoje</span></h2>
+    <p class="lead" data-in style="--i:1">Fechar esta página mantém tudo como está. Entrar no programa te dá um caminho claro, com 7 dias de garantia para decidir sem risco.</p>
+    <div class="acao" data-in style="--i:2">
+      <a class="btn" href="#" data-checkout>Quero começar agora</a>
+      <small>Compra segura pela Hotmart</small>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  <p>© <span id="year"></span> Programa Engenheiro Autônomo NR13, Vitor Mendes da Silva. Instagram: <a href="https://instagram.com/engvitormendesnr13" rel="noopener" target="_blank">@engvitormendesnr13</a></p>
-  <p>Curso livre de caráter educacional. Não confere atribuição profissional nem certificação de PLH. Os resultados dependem da aplicação, da prospecção e das condições de cada profissional e mercado.</p>
+  <div class="wrap">
+    <p>© <span id="year"></span> Programa Engenheiro Autônomo NR13, Vitor Mendes da Silva. Instagram: <a href="https://instagram.com/engvitormendesnr13" rel="noopener" target="_blank">@engvitormendesnr13</a></p>
+    <p>Curso livre de caráter educacional. Não confere atribuição profissional nem certificação de PLH. Os resultados dependem da aplicação, da prospecção e das condições de cada profissional e mercado.</p>
+  </div>
 </footer>
 
 <dialog class="bf" id="bf" aria-labelledby="bf-titulo">
@@ -647,16 +626,8 @@ var CONFIG = {
     els.forEach(function(el){ el.classList.add("is-in"); });
   }
 
-  // Sanfona das 4 etapas: uma aberta por vez
-  var etapas = document.querySelectorAll("#sanfona .etapa");
-  etapas.forEach(function(li){
-    li.querySelector("button").addEventListener("click", function(){
-      etapas.forEach(function(o){ var on = o === li; o.classList.toggle("aberta", on); o.querySelector("button").setAttribute("aria-expanded", on); });
-    });
-  });
-
   // Barra de compra no celular: aparece depois do topo e some na oferta e na faixa final
-  var sticky = document.getElementById("sticky"), offer = document.getElementById("oferta"), fim = document.querySelector(".fim");
+  var sticky = document.getElementById("sticky"), offer = document.getElementById("oferta"), fim = document.querySelector(".fecho");
   if ("IntersectionObserver" in window) {
     var heroOut = false, offerIn = false, fimIn = false;
     var upd = function(){ sticky.classList.toggle("show", heroOut && !offerIn && !fimIn); };
