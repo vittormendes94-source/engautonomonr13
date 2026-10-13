@@ -537,14 +537,14 @@ var CONFIG = {
   // Black Friday: entra no ar sozinha a partir de "start" (e sai em "end", se preenchido).
   // Só ative (enabled: true) depois de criar a oferta promocional na Hotmart e colar o link dela em checkoutUrl.
   promo: {
-    enabled: false,
+    enabled: true,
     start: "2026-11-16T00:00:00-03:00",
-    end: "",                                   // ex.: "2026-11-30T23:59:59-03:00"
+    end: "2026-11-30T23:59:59-03:00",
     priceMain: "R$ 1.497",
     priceLabel: "Black Friday: de R$ 2.997 por",
     priceSub: "ou parcelado em até 12x no cartão",
-    topbar: "BLACK FRIDAY · Programa Engenheiro Autônomo NR13 com condição especial por tempo limitado",
-    checkoutUrl: ""                            // link da oferta promocional na Hotmart
+    topbar: "BLACK FRIDAY · de R$ 2.997 por R$ 1.497 até 30/11",
+    checkoutUrl: ""                            // OBRIGATÓRIO: link da oferta de R$ 1.497 na Hotmart (sem ele a promoção não aparece)
   },
   modules: [
     ["00", "Comece por Aqui", 7, "Plano pessoal de estudo e preparação para iniciar o programa.", ["Boas-vindas ao Programa", "Minha História e Minha Experiência", "Por Que Este Programa Existe", "Como o Programa Funciona na Prática", "Regras, Compromissos e Expectativas", "Se Você Travar: Como Pedir Ajuda e Continuar", "Agora é com Você: Seu Primeiro Passo"]],
@@ -565,10 +565,19 @@ var CONFIG = {
 
 (function(){
   var C = CONFIG, P = C.promo, now = Date.now();
-  if (P && P.enabled && now >= Date.parse(P.start) && (!P.end || now <= Date.parse(P.end))) {
+  if (P && P.enabled && P.checkoutUrl && now >= Date.parse(P.start) && (!P.end || now <= Date.parse(P.end))) {
     C.priceMain = P.priceMain; C.priceLabel = P.priceLabel; C.priceSub = P.priceSub;
-    if (P.checkoutUrl) C.checkoutUrl = P.checkoutUrl;
-    var bar = document.getElementById("promobar"); bar.textContent = P.topbar; bar.hidden = false;
+    C.checkoutUrl = P.checkoutUrl;
+    var bar = document.getElementById("promobar"); bar.hidden = false;
+    var tick = function(){
+      var ms = Date.parse(P.end) - Date.now(), t = P.topbar;
+      if (P.end && ms > 0) {
+        var d = Math.floor(ms/864e5), h = Math.floor(ms/36e5)%24, m = Math.floor(ms/6e4)%60;
+        t += " · termina em " + (d ? d + "d " : "") + h + "h " + m + "min";
+      }
+      bar.textContent = t;
+    };
+    tick(); setInterval(tick, 30000);
   }
   document.querySelectorAll("[data-cfg]").forEach(function(el){ el.textContent = C[el.getAttribute("data-cfg")] || ""; });
   document.getElementById("year").textContent = new Date().getFullYear();
