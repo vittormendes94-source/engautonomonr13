@@ -206,8 +206,34 @@ footer a{color:#c8d3e2}
 .barra.show{transform:none}
 .barra .btn{width:100%}
 
+/* Pop-up da Black Friday */
+.bf{border:0;padding:0;margin:auto;width:min(92vw,620px);max-height:94svh;background:var(--noite);color:#fff;border-radius:var(--raio);overflow:auto;text-align:center}
+.bf::backdrop{background:rgba(4,9,18,.86)}
+.bf .dentro{position:relative;padding:clamp(40px,6vw,56px) clamp(22px,5vw,48px) clamp(28px,4vw,40px)}
+.bf .fechar{position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:50%;border:0;background:#1b2b47;color:#fff;cursor:pointer;display:grid;place-items:center;transition:background-color 160ms ease,transform 140ms var(--ease-out)}
+.bf .fechar:hover{background:#2a3f63}.bf .fechar:active{transform:scale(.94)}
+.bf .fechar svg{width:22px;height:22px}
+.bf .selo-bf{display:inline-block;background:var(--latao);color:var(--noite);font-family:var(--display);font-size:clamp(30px,6vw,40px);line-height:1;padding:12px 26px 9px;border-radius:999px}
+.bf h2{font-family:var(--display);font-weight:400;font-size:clamp(44px,11vw,64px);line-height:.92;margin-top:16px}
+.bf .de{margin-top:16px;font-size:clamp(18px,3.4vw,22px);color:var(--claro)}
+.bf .de s{color:#fff;text-decoration-color:var(--alerta);text-decoration-thickness:3px}
+.bf .por{font-family:var(--display);font-size:clamp(96px,min(24vw,19svh),168px);line-height:.85;color:var(--latao);margin-top:6px}
+.bf .parc{font-size:17px;color:var(--claro)}
+.bf .relogio{display:flex;justify-content:center;gap:10px;margin:26px 0 8px}
+.bf .relogio div{background:#13284b;border-radius:16px;min-width:clamp(62px,15vw,78px);padding:12px 6px 10px}
+.bf .relogio b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(36px,8vw,46px);line-height:.9}
+.bf .relogio span{font-size:13px;color:var(--claro)}
+.bf .ate{font-size:15px;color:var(--claro);margin-bottom:24px}
+.bf .btn{width:100%;font-size:clamp(22px,5vw,28px);padding:22px 20px 19px}
+.bf .conhecer{margin-top:16px;font-size:15px;color:var(--claro)}
+@media (max-height:820px){.bf .dentro{padding-top:30px;padding-bottom:22px}.bf .selo-bf{font-size:28px;padding:9px 20px 7px}.bf h2{font-size:44px;margin-top:12px}.bf .de{margin-top:10px}.bf .relogio{margin:16px 0 6px}.bf .relogio div{padding:9px 6px 7px}.bf .relogio b{font-size:34px}.bf .ate{margin-bottom:16px}.bf .btn{padding:18px 20px 15px}.bf .conhecer{margin-top:10px}}
+
 /* Movimento */
 @media (prefers-reduced-motion:no-preference){
+  .bf[open]{animation:bfEntra 520ms var(--ease-out)}
+  .bf[open]::backdrop{animation:bfFundo 300ms ease}
+  @keyframes bfEntra{from{opacity:0;transform:translateY(24px) scale(.94)}to{opacity:1;transform:none}}
+  @keyframes bfFundo{from{opacity:0}to{opacity:1}}
   .js .gauge .foto{clip-path:circle(0% at 50% 50%);transition:clip-path 1100ms var(--ease-in-out)}
   .js .gauge .foto img{transform:scale(1.12);transition:transform 1500ms var(--ease-out)}
   .js .gauge .mostrador{transform:rotate(-24deg) scale(.96);transform-origin:50% 50%;opacity:0;transition:transform 1200ms var(--ease-out),opacity 500ms ease}
@@ -483,6 +509,26 @@ footer a{color:#c8d3e2}
   <p>Curso livre de caráter educacional. Não confere atribuição profissional nem certificação de PLH. Os resultados dependem da aplicação, da prospecção e das condições de cada profissional e mercado.</p>
 </footer>
 
+<dialog class="bf" id="bf" aria-labelledby="bf-titulo">
+  <div class="dentro">
+    <button class="fechar" type="button" id="bf-fechar" aria-label="Fechar e conhecer o programa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></button>
+    <span class="selo-bf">Black Friday</span>
+    <h2 id="bf-titulo">Engenheiro Autônomo NR13</h2>
+    <p class="de">de <s>R$ 2.997</s> por apenas</p>
+    <p class="por">R$ 1.497</p>
+    <p class="parc">ou parcelado em até 12x no cartão</p>
+    <div class="relogio" aria-label="Tempo restante da oferta">
+      <div><b id="bf-d">00</b><span>dias</span></div>
+      <div><b id="bf-h">00</b><span>horas</span></div>
+      <div><b id="bf-m">00</b><span>min</span></div>
+      <div><b id="bf-s">00</b><span>seg</span></div>
+    </div>
+    <p class="ate">Oferta válida até 30/11 às 23h59</p>
+    <a class="btn" href="#" data-checkout>Quero o preço de Black Friday</a>
+    <p class="conhecer">Ou feche no X para conhecer o programa</p>
+  </div>
+</dialog>
+
 <div class="barra" id="sticky"><a class="btn" href="#oferta">Garantir minha vaga</a></div>
 
 <script>
@@ -504,7 +550,8 @@ var CONFIG = {
     priceLabel: "Black Friday: de R$ 2.997 por",
     priceSub: "ou parcelado em até 12x no cartão",
     topbar: "BLACK FRIDAY · de R$ 2.997 por R$ 1.497 até 30/11",
-    checkoutUrl: ""                            // OBRIGATÓRIO: link da oferta de R$ 1.497 na Hotmart (sem ele a promoção não aparece)
+    checkoutUrl: "https://pay.hotmart.com/O107817284U?off=wfthngqt"   // oferta de R$ 1.497 na Hotmart
+    // Para ver a promoção antes da data, abra o site com ?bf=1 no final do endereço
   },
   modules: [
     ["00", "Comece por Aqui", 7, "Plano pessoal de estudo e preparação para iniciar o programa.", ["Boas-vindas ao Programa", "Minha História e Minha Experiência", "Por Que Este Programa Existe", "Como o Programa Funciona na Prática", "Regras, Compromissos e Expectativas", "Se Você Travar: Como Pedir Ajuda e Continuar", "Agora é com Você: Seu Primeiro Passo"]], // taste-skill-ignore: números oficiais dos módulos do curso
@@ -525,7 +572,8 @@ var CONFIG = {
 
 (function(){
   var C = CONFIG, P = C.promo, now = Date.now();
-  if (P && P.enabled && P.checkoutUrl && now >= Date.parse(P.start) && (!P.end || now <= Date.parse(P.end))) {
+  var previa = /[?&]bf=1(&|$)/.test(location.search);
+  if (P && P.enabled && P.checkoutUrl && (previa || (now >= Date.parse(P.start) && (!P.end || now <= Date.parse(P.end))))) {
     C.priceMain = P.priceMain; C.priceLabel = P.priceLabel; C.priceSub = P.priceSub;
     C.checkoutUrl = P.checkoutUrl;
     var bar = document.getElementById("promobar"); bar.hidden = false;
@@ -538,6 +586,24 @@ var CONFIG = {
       bar.textContent = t;
     };
     tick(); setInterval(tick, 30000);
+
+    // Pop-up grande da Black Friday: abre ao entrar no site e só fecha no X (ou Esc)
+    var dlg = document.getElementById("bf");
+    if (dlg && typeof dlg.showModal === "function") {
+      var pad = function(n){ return (n < 10 ? "0" : "") + n; };
+      var relogio = function(){
+        var ms = Math.max(0, Date.parse(P.end) - Date.now());
+        document.getElementById("bf-d").textContent = pad(Math.floor(ms/864e5));
+        document.getElementById("bf-h").textContent = pad(Math.floor(ms/36e5)%24);
+        document.getElementById("bf-m").textContent = pad(Math.floor(ms/6e4)%60);
+        document.getElementById("bf-s").textContent = pad(Math.floor(ms/1e3)%60);
+      };
+      relogio(); setInterval(relogio, 1000);
+      dlg.addEventListener("cancel", function(){ /* Esc também fecha, por acessibilidade */ });
+      document.getElementById("bf-fechar").addEventListener("click", function(){ dlg.close(); });
+      dlg.showModal();
+      document.getElementById("bf-fechar").blur();
+    }
   }
   document.querySelectorAll("[data-cfg]").forEach(function(el){ el.textContent = C[el.getAttribute("data-cfg")] || ""; });
   document.getElementById("year").textContent = new Date().getFullYear();
