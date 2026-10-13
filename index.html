@@ -95,6 +95,49 @@ a{color:inherit;text-underline-offset:.2em}
 .falas li svg{width:22px;height:22px;flex:0 0 auto;color:var(--alerta)}
 .virada{margin-top:26px;font-size:clamp(20px,1.9vw,24px);font-weight:800;line-height:1.3}
 
+/* Pensamentos em grade */
+.falas.grade2{grid-template-columns:1fr 1fr}
+.reconhece{margin-top:22px;font-size:17px;color:var(--suave)}
+.reconhece b{color:#fff}
+
+/* Agitação */
+.estreito{max-width:880px;margin:0 auto}
+.custos{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.custos li{display:flex;gap:14px;align-items:flex-start;background:var(--sup);border:1px solid rgba(224,71,91,.28);border-radius:16px;padding:20px 22px;font-size:17px;color:#fff}
+.custos li svg{width:24px;height:24px;flex:0 0 auto;color:var(--alerta);margin-top:1px}
+.soco{margin-top:34px;text-align:center;font-family:var(--display);font-size:clamp(30px,3.4vw,46px);line-height:1.02;color:#fff}
+.soco span{color:var(--latao)}
+
+/* Antes e depois */
+.ad{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch}
+.ad .col{border-radius:var(--raio);padding:30px 28px}
+.ad .antes{background:linear-gradient(180deg,rgba(224,71,91,.10),rgba(224,71,91,.03));border:1px solid rgba(224,71,91,.3)}
+.ad .depois{background:linear-gradient(180deg,rgba(226,174,58,.14),rgba(226,174,58,.04));border:1px solid var(--borda-ouro)}
+.ad h3{font-family:var(--display);font-weight:400;font-size:34px;line-height:1;margin-bottom:18px}
+.ad .antes h3{color:#ff8a98}.ad .depois h3{color:var(--latao)}
+.ad ul{list-style:none;display:grid;gap:14px}
+.ad li{display:flex;gap:12px;align-items:flex-start;font-size:17px;color:#fff}
+.ad li svg{width:22px;height:22px;flex:0 0 auto;margin-top:1px}
+.ad .antes li svg{color:var(--alerta)}.ad .depois li svg{color:var(--latao)}
+.ad .seta-ad{align-self:center;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,var(--latao-claro),var(--latao));color:var(--noite)}
+.ad .seta-ad svg{width:26px;height:26px}
+
+/* Retrato premium */
+.retrato-premium{position:relative;width:100%;max-width:460px;aspect-ratio:3/4;border-radius:24px;overflow:hidden;border:2px solid var(--latao);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 8px rgba(226,174,58,.08)}
+.retrato-premium img{width:100%;height:100%;object-fit:cover}
+.retrato-premium .tag{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(7,17,31,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--borda-ouro);border-radius:14px;padding:12px 16px}
+.retrato-premium .tag b{display:block;font-family:var(--display);font-weight:400;font-size:26px;line-height:1;color:#fff}
+.retrato-premium .tag span{font-size:14px;color:var(--latao)}
+
+/* Dois caminhos */
+.caminhos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:8px auto 0;text-align:left}
+.caminho{border-radius:var(--raio);padding:28px}
+.caminho.a{background:var(--sup);border:1px solid var(--borda)}
+.caminho.b{background:linear-gradient(180deg,#183258,#122848);border:2px solid var(--latao);box-shadow:0 30px 60px -30px rgba(226,174,58,.35)}
+.caminho h3{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;margin-bottom:10px;color:#fff}
+.caminho.a h3{color:#c3cede}
+.caminho p{font-size:16px;color:var(--suave)}
+
 /* 4 etapas: cards visíveis */
 .etapas{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:e}
 .etapa{counter-increment:e;position:relative;background:linear-gradient(180deg,var(--sup-2),var(--sup));border:1px solid var(--borda);border-radius:var(--raio);padding:28px 24px 26px;transition:transform 200ms var(--ease-out),border-color 200ms ease}
@@ -143,26 +186,27 @@ details[open]>summary .seta{transform:rotate(180deg)}
 .citacao span{color:var(--latao)}
 
 /* Oferta */
-.oferta{max-width:760px;margin:0 auto;background:linear-gradient(180deg,#132848,#0f1f38);border:2px solid var(--latao);border-radius:24px;padding:clamp(28px,4vw,48px);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 8px rgba(226,174,58,.06)}
-.oferta .nome{text-align:center;font-family:var(--display);font-size:clamp(30px,3vw,38px);line-height:1;color:#fff}
-.oferta .sub{text-align:center;color:var(--suave);font-size:15px;margin-top:6px}
-.inclui{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin:28px 0;padding:24px 0;border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
+.oferta{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:36px;align-items:center;scroll-margin-top:110px;background:linear-gradient(180deg,#132848,#0f1f38);border:2px solid var(--latao);border-radius:24px;padding:clamp(28px,4vw,48px);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 8px rgba(226,174,58,.06)}
+.oferta .nome{font-family:var(--display);font-size:clamp(30px,3vw,38px);line-height:1;color:#fff}
+.oferta .sub{color:var(--suave);font-size:15px;margin-top:6px}
+.inclui{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;margin-top:22px;padding-top:22px;border-top:1px solid var(--borda)}
 .inclui li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
 .inclui li svg{width:20px;height:20px;flex:0 0 auto;color:var(--ok);margin-top:2px}
 .preco{text-align:center}
 .preco .lbl{color:var(--suave);font-size:16px}
-.preco .big{font-family:var(--display);font-size:clamp(76px,10vw,120px);line-height:.9;color:var(--latao);text-shadow:0 10px 40px rgba(226,174,58,.25)}
+.preco .big{white-space:nowrap;font-family:var(--display);font-size:clamp(64px,6.4vw,96px);line-height:.9;color:var(--latao);text-shadow:0 10px 40px rgba(226,174,58,.25)}
 .preco .sub2{color:var(--suave);font-size:16px;margin-top:4px}
-.oferta .btn{width:100%;margin-top:26px}
+.oferta .btn{width:100%;margin-top:22px}
+.compra{background:rgba(7,17,31,.55);border:1px solid var(--borda);border-radius:20px;padding:28px 24px;text-align:center}
 .seguro{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 22px;margin-top:16px;font-size:14px;color:var(--suave)}
 .seguro span{display:inline-flex;align-items:center;gap:6px}
 .seguro svg{width:16px;height:16px;color:var(--latao)}
-.garantia{max-width:760px;margin:22px auto 0;display:flex;gap:20px;align-items:center;background:var(--sup);border:1px solid var(--borda);border-radius:var(--raio);padding:22px 26px}
+.garantia{max-width:1000px;margin:22px auto 0;display:flex;gap:20px;align-items:center;background:var(--sup);border:1px solid var(--borda);border-radius:var(--raio);padding:22px 26px}
 .selo{flex:0 0 96px;height:96px;border-radius:50%;background:#0f7a48;color:#fff;display:grid;place-items:center;text-align:center;font-weight:800;font-size:12px;line-height:1.05;box-shadow:0 0 0 4px rgba(24,163,93,.25)}
 .selo b{display:block;font-family:var(--display);font-weight:400;font-size:44px;line-height:.85}
 .garantia p{font-size:16px;color:var(--suave)}
 .garantia p b{color:#fff}
-.obs{max-width:760px;margin:18px auto 0;font-size:14px;color:var(--suave);text-align:center}
+.obs{max-width:1000px;margin:18px auto 0;font-size:14px;color:var(--suave);text-align:center}
 
 /* FAQ */
 .faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
@@ -232,6 +276,11 @@ footer a{color:#c8d3e2}
   .mestre{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:860px){
+  .oferta{grid-template-columns:1fr;gap:22px}
+  .ad{grid-template-columns:1fr}
+  .ad .seta-ad{transform:rotate(90deg);justify-self:center}
+  .caminhos{grid-template-columns:1fr}
+  .duo .retrato-premium{margin:0 auto;max-width:340px}
   .sec{padding:68px 0}
   .hero .wrap{grid-template-columns:1fr;min-height:0;gap:28px;padding-top:36px}
   .gauge{justify-self:center;width:min(86vw,420px)}
@@ -242,6 +291,10 @@ footer a{color:#c8d3e2}
   .mods{grid-template-columns:1fr}
 }
 @media (max-width:620px){
+  .falas.grade2,.custos{grid-template-columns:1fr}
+  .oferta{padding:24px 16px}
+  .compra{padding:22px 12px}
+  .oferta .btn{font-size:21px;padding:18px 12px 15px}
   body{font-size:16px}
   .wrap{padding:0 18px}
   .nav .wrap{height:62px}
@@ -273,7 +326,7 @@ footer a{color:#c8d3e2}
       <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#e2ae3a"/><circle cx="16" cy="16" r="11" fill="#07111f"/><path d="M16 16 L23 10" stroke="#e2ae3a" stroke-width="3" stroke-linecap="round"/></svg>
       <span><span class="longo">Engenheiro Autônomo </span>NR13</span>
     </a>
-    <a class="btn btn-sm" href="#oferta">Garantir minha vaga</a>
+    <a class="btn btn-sm" href="#" data-checkout>Garantir minha vaga</a>
   </div>
 </header>
 
@@ -287,7 +340,7 @@ footer a{color:#c8d3e2}
       <h1 class="d" data-in style="--i:1">Transforme <span class="nb">NR&#8209;13</span><br><span class="ouro">em faturamento</span></h1>
       <p class="lead" data-in style="--i:2">Você não estudou 5 anos de engenharia para ficar esperando uma vaga. Aprenda a prestar serviços de NR-13 em caldeiras e vasos de pressão <b>por conta própria</b>, do primeiro cliente ao relatório com ART.</p>
       <div class="acao esq" data-in style="--i:3">
-        <a class="btn" href="#oferta">Quero minha nova fonte de renda</a>
+        <a class="btn" href="#" data-checkout>Quero minha nova fonte de renda</a>
         <small>12 módulos, 65 aulas e 7 dias de garantia</small>
       </div>
     </div>
@@ -312,16 +365,31 @@ footer a{color:#c8d3e2}
     <div class="anel" data-in><img src="/img/vitor-mesa.webp" width="520" height="971" loading="lazy" decoding="async" alt="Vitor Mendes pensativo, à mesa com livros de caldeiras, vasos de pressão e NR-13" style="object-position:50% 18%"></div>
     <div>
       <h2 class="d titulo" data-in style="--i:1">Pensamentos que <span class="ouro">te travam</span></h2>
-      <ul class="falas">
-        <li data-in style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Estudei 5 anos de cálculo pra ganhar isso?”</li>
-        <li data-in style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Meu CREA está na gaveta servindo pra quê?”</li>
-        <li data-in style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“E se eu assinar uma ART e der problema?”</li>
-        <li data-in style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Quanto eu cobro? Caro, perco. Barato, me queimo.”</li>
-      </ul>
-      <p class="virada" data-in style="--i:6">A faculdade te ensinou a calcular. <span class="ouro">Ninguém te ensinou a faturar.</span></p>
-      <div class="acao esq" data-in style="--i:7">
-        <a class="btn" href="#oferta">Quero sair desse ciclo</a>
+      <ul class="falas"><li data-in style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Estudei 5 anos de cálculo pra ganhar isso?”</li><li data-in style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Meu CREA está na gaveta servindo pra quê?”</li><li data-in style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Gente da minha turma já está faturando… e eu aqui.”</li><li data-in style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“E se eu assinar uma ART e der problema? Minha carreira acaba.”</li><li data-in style="--i:6"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Quanto eu cobro? Caro, perco. Barato, me queimo.”</li><li data-in style="--i:7"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Eu sei que sou capaz. Só não sei por onde começar.”</li></ul>
+      <p class="reconhece" data-in style="--i:8"><b>Se você se reconheceu em pelo menos um, esta página foi escrita para você.</b> Esses pensamentos voltam no banho, no trânsito e antes de dormir. Todo santo dia.</p>
+      <div class="acao esq" data-in style="--i:9">
+        <a class="btn" href="#" data-checkout>Quero sair desse ciclo agora</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGITAÇÃO -->
+<section class="sec alt">
+  <div class="wrap estreito">
+    <div class="cabeca">
+      <h2 class="d titulo" data-in>A faculdade te ensinou a calcular. <span class="ouro">Ninguém te ensinou a faturar.</span></h2>
+      <p class="lead" data-in style="--i:1">Você tem diploma, conhecimento técnico e CREA. Mas ninguém te mostrou como transformar isso em <b>serviço, cliente e dinheiro no bolso</b>. E enquanto você não descobre, a conta chega:</p>
+    </div>
+    <ul class="custos">
+      <li data-in><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Mais um mês dependendo de um salário que não acompanha o que você estudou.</li>
+      <li data-in style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Mais currículos enviados para vagas que nunca respondem.</li>
+      <li data-in style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Mais tempo vendo outros engenheiros se posicionarem enquanto você fica para trás.</li>
+      <li data-in style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Mais uma vez adiando a decisão por medo de errar, de assinar errado, de cobrar errado.</li>
+    </ul>
+    <p class="soco" data-in>O pior não é ganhar pouco. <span>É saber que poderia ganhar mais, e não saber como.</span></p>
+    <div class="acao" data-in>
+      <a class="btn" href="#" data-checkout>Quero mudar isso hoje</a>
     </div>
   </div>
 </section>
@@ -330,9 +398,8 @@ footer a{color:#c8d3e2}
 <section class="sec alt">
   <div class="wrap">
     <div class="cabeca">
-      <p class="frase-nr" data-in><img src="/img/manometro.webp" width="120" height="120" alt="" loading="lazy"> Toda empresa com caldeira ou reservatório de ar precisa de inspeção NR-13. Quem assina é um engenheiro.</p>
-      <h2 class="d titulo" data-in style="--i:1">O caminho em <span class="ouro">4 etapas</span></h2>
-      <p class="lead" data-in style="--i:2">Da primeira oportunidade à entrega do relatório. Você não precisa abandonar a engenharia, precisa aprender a usá-la.</p>
+      <h2 class="d titulo" data-in style="--i:1">Enquanto você procura vaga, <span class="ouro">existe demanda procurando engenheiro</span></h2>
+      <p class="lead" data-in style="--i:2">Oficinas, indústrias, hospitais, frigoríficos: toda empresa com caldeira ou reservatório de ar é <b>obrigada por lei</b> a manter tudo inspecionado. E o prazo vence de novo. O que falta não é mercado, é o caminho. Ele tem 4 etapas:</p>
     </div>
     <ol class="etapas">
       <li class="etapa" data-in><h3>Identificar</h3><p>Onde está a demanda de NR-13 e quais serviços fazem sentido para começar.</p><ul><li>Mercado da NR-13</li><li>PLH, CREA e ART</li><li>Limites de atuação</li></ul></li>
@@ -341,13 +408,33 @@ footer a{color:#c8d3e2}
       <li class="etapa" data-in style="--i:3"><h3>Entregar</h3><p>Campo, evidências, relatório e ART, com recorrência a cada vencimento.</p><ul><li>Reservatório e caldeira</li><li>Bancada de manômetro</li><li>Válvula de segurança</li></ul></li>
     </ol>
     <div class="acao" data-in>
-      <a class="btn" href="#oferta">Quero aprender esse caminho</a>
+      <a class="btn" href="#" data-checkout>Quero aprender esse caminho</a>
+      <small>Você não precisa abandonar a engenharia. Precisa aprender a usá-la.</small>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="cabeca">
+      <h2 class="d titulo" data-in>Quem você é hoje <span class="ouro">e quem você vai se tornar</span></h2>
+      <p class="lead" data-in style="--i:1">Não é sobre mais um curso. É sobre a sua carreira daqui pra frente.</p>
+    </div>
+    <div class="ad">
+      <div class="col antes" data-in><h3>Hoje</h3><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Olha para a NR-13 e não sabe por onde começar</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Tem medo de assinar ART e assumir responsabilidade</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Não sabe quanto cobrar nem como montar proposta</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Depende 100% de salário ou de vaga aparecer</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Se sente só mais um engenheiro no mercado</li></ul></div>
+      <div class="seta-ad" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="col depois" data-in style="--i:1"><h3>Depois do programa</h3><ul><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Enquadra caldeiras e vasos de pressão com critério</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sabe o que verificar, documentar e quando buscar apoio</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Monta proposta profissional com preço calculado</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tem um plano de 30 dias para os primeiros clientes</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>É reconhecido como especialista num nicho valorizado</li></ul></div>
+    </div>
+    <div class="acao" data-in>
+      <a class="btn" href="#" data-checkout>Quero essa transformação</a>
+      <small>7 dias de garantia: o risco é todo meu</small>
     </div>
   </div>
 </section>
 
 <!-- MÉTODO E CONTEÚDO -->
-<section class="sec" id="conteudo">
+<section class="sec alt" id="conteudo">
   <div class="wrap">
     <div class="cabeca">
       <h2 class="d titulo" data-in>Método <span class="ouro">M.E.S.T.R.E.</span> NR13</h2>
@@ -386,15 +473,15 @@ footer a{color:#c8d3e2}
       <div class="mods" id="modules"></div>
     </details>
     <div class="acao" data-in>
-      <a class="btn" href="#oferta">Quero acesso a todo o conteúdo</a>
+      <a class="btn" href="#" data-checkout>Quero acesso a todo o conteúdo</a>
     </div>
   </div>
 </section>
 
 <!-- INSTRUTOR -->
-<section class="sec alt">
+<section class="sec">
   <div class="wrap duo">
-    <div class="anel" data-in><img src="/img/vitor-campo.webp" width="460" height="880" loading="lazy" decoding="async" alt="Vitor Mendes em campo, de capacete e óculos, ao lado de um vaso de pressão" style="object-position:50% 22%"></div>
+    <div class="retrato-premium" data-in><img src="/img/vitor-evento.webp" width="600" height="800" loading="lazy" decoding="async" alt="Vitor Mendes de terno, braços cruzados"><div class="tag"><b>Vitor Mendes</b><span>Engenheiro mecânico especialista em NR-13</span></div></div>
     <div>
       <h2 class="d titulo" data-in style="--i:1">Quem vai <span class="ouro">te ensinar</span></h2>
       <p class="lead" data-in style="--i:2">Sou <b>Vitor Mendes</b>, engenheiro mecânico. Campo, empresas, treinamento e prestação de serviços em NR-13 fazem parte da minha rotina. Já estive do lado de quem não sabia por onde começar, e foi fazendo que construí este método.</p>
@@ -405,7 +492,7 @@ footer a{color:#c8d3e2}
       </div>
       <p class="citacao" data-in style="--i:4">Eu não ensino só na teoria. <span>Ensino o que aprendi fazendo.</span></p>
       <div class="acao esq" data-in style="--i:5">
-        <a class="btn" href="#oferta">Quero aprender com o Vitor</a>
+        <a class="btn" href="#" data-checkout>Quero aprender com o Vitor</a>
       </div>
     </div>
   </div>
@@ -415,12 +502,13 @@ footer a{color:#c8d3e2}
 <section class="sec" id="oferta">
   <div class="wrap">
     <div class="cabeca">
-      <h2 class="d titulo" data-in>Sua vaga <span class="ouro">no programa</span></h2>
+      <h2 class="d titulo" data-in>Sua nova fonte de renda <span class="ouro">começa aqui</span></h2>
     </div>
-    <div class="oferta" data-in>
-      <div class="nome">Programa Engenheiro Autônomo NR13</div>
-      <p class="sub">Acesso pela área de membros da Hotmart</p>
-      <ul class="inclui">
+    <div class="oferta" id="oferta-card" data-in>
+      <div>
+        <div class="nome">Programa Engenheiro Autônomo NR13</div>
+        <p class="sub">Tudo o que você precisa para começar a prestar serviços de NR-13</p>
+        <ul class="inclui">
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>12 módulos e 65 aulas</li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Casos reais de campo e bancada</li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Modelo de proposta comercial</li>
@@ -430,16 +518,19 @@ footer a{color:#c8d3e2}
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Suporte por e-mail</li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Certificado de conclusão</li>
       </ul>
-      <div class="preco">
-        <div class="lbl" data-cfg="priceLabel"></div>
-        <div class="big" data-cfg="priceMain"></div>
-        <div class="sub2" data-cfg="priceSub"></div>
       </div>
-      <a class="btn" href="#" data-checkout>Sim, quero me inscrever</a>
-      <div class="seguro">
+      <div class="compra">
+        <div class="preco">
+          <div class="lbl" data-cfg="priceLabel"></div>
+          <div class="big" data-cfg="priceMain"></div>
+          <div class="sub2" data-cfg="priceSub"></div>
+        </div>
+        <a class="btn" href="#" data-checkout>Sim, quero minha vaga</a>
+        <div class="seguro">
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></svg>Compra segura Hotmart</span>
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>Cartão, Pix ou boleto</span>
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Acesso imediato</span>
+      </div>
       </div>
     </div>
     <div class="garantia" data-in>
@@ -470,11 +561,14 @@ footer a{color:#c8d3e2}
 <!-- FECHAMENTO -->
 <section class="sec fecho">
   <div class="wrap">
-    <h2 class="d titulo" data-in>Daqui a um ano, você vai querer <span class="ouro">ter começado hoje</span></h2>
-    <p class="lead" data-in style="--i:1">Fechar esta página mantém tudo como está. Entrar no programa te dá um caminho claro, com 7 dias de garantia para decidir sem risco.</p>
+    <h2 class="d titulo" data-in>Agora você tem <span class="ouro">dois caminhos</span></h2>
+    <div class="caminhos estreito">
+      <div class="caminho a" data-in><h3>Fechar esta página</h3><p>E continuar exatamente onde está. Os mesmos pensamentos, o mesmo salário. Daqui a um ano, a mesma pergunta: “e se eu tivesse começado?”</p></div>
+      <div class="caminho b" data-in style="--i:1"><h3>Entrar no programa hoje</h3><p>E ter, pela primeira vez, um caminho claro: o que estudar, o que fazer em campo, como documentar, quanto cobrar e onde achar os primeiros clientes. <b style="color:#fff">Com 7 dias de garantia.</b></p></div>
+    </div>
     <div class="acao" data-in style="--i:2">
-      <a class="btn" href="#" data-checkout>Quero começar agora</a>
-      <small>Compra segura pela Hotmart</small>
+      <a class="btn" href="#" data-checkout>Eu escolho começar agora</a>
+      <small>Compra segura pela Hotmart, 7 dias de garantia</small>
     </div>
   </div>
 </section>
@@ -508,7 +602,7 @@ footer a{color:#c8d3e2}
   </div>
 </dialog>
 
-<div class="barra" id="sticky"><a class="btn" href="#oferta">Garantir minha vaga</a></div>
+<div class="barra" id="sticky"><a class="btn" href="#" data-checkout>Garantir minha vaga</a></div>
 
 <script>
 /* ============================================================
