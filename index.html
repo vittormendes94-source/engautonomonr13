@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Programa Engenheiro Autônomo NR13 | Vitor Mendes</title>
-<meta name="description" content="Transforme sua Engenharia Mecânica em uma atuação autônoma na NR-13. 12 módulos e 65 aulas com o Método M.E.S.T.R.E. NR13: enquadramento, caldeiras, vasos de pressão, campo, relatório, ART, proposta e primeiros clientes.">
+<meta name="description" content="Você não estudou 5 anos de Engenharia Mecânica para depender de uma vaga. Aprenda a prestar serviços de NR-13 por conta própria: enquadramento, inspeção, relatório, ART, preço e primeiros clientes.">
 <meta name="theme-color" content="#07101f">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Programa Engenheiro Autônomo NR13 — Vitor Mendes">
@@ -15,9 +15,9 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2307101f'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='800' font-size='12' text-anchor='middle' fill='%23e8b84a'%3ENR13%3C/text%3E%3C/svg%3E">
 <style>
 :root{
-  --bg:#ffffff;--bg-alt:#f3f5f9;--ink:#0d1626;--muted:#4b586a;--line:#dde3eb;
-  --navy:#07101f;--navy-2:#0e1c33;--navy-3:#15284a;--blue:#1f6bff;--blue-soft:#4d8bff;
-  --gold:#e8b84a;--gold-2:#f5d27a;--gold-dark:#b98a1f;--ok:#17a65b;--bad:#d6455a;
+  --bg:#fff;--bg-alt:#f3f5f9;--ink:#0d1626;--muted:#4b586a;--line:#dde3eb;
+  --navy:#07101f;--navy-2:#0e1c33;--blue:#1f6bff;--blue-soft:#5a93ff;
+  --gold:#e8b84a;--gold-2:#f7d886;--gold-dark:#b98a1f;--ok:#17a65b;--bad:#e0475e;
   --radius:14px;--max:1100px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -26,22 +26,30 @@ body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Aria
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-section{padding:76px 0}
-h1,h2,h3{line-height:1.15;letter-spacing:-.015em}
-h2{font-size:clamp(1.7rem,3.8vw,2.5rem);margin-bottom:16px;font-weight:850}
+.narrow{max-width:780px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.015em}
+h2{font-size:clamp(1.75rem,4vw,2.6rem);margin-bottom:18px;font-weight:900}
 h3{font-size:1.12rem;margin-bottom:6px}
-.lead{font-size:1.1rem;color:var(--muted);max-width:740px}
-.center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
+p+p{margin-top:16px}
+.lead{font-size:1.12rem;color:var(--muted)}
+.center{text-align:center}
 .eyebrow{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
 .alt{background:var(--bg-alt)}
-.dark{background:var(--navy);color:#e6edf7}.dark .lead{color:#aebcd0}.dark .eyebrow{color:var(--blue-soft)}
-.gold{color:var(--gold)}
-.blue{color:var(--blue-soft)}
+.dark{background:var(--navy);color:#e6edf7}.dark .lead,.dark p{color:#b3c1d4}.dark .eyebrow{color:var(--blue-soft)}
+.dark strong,.dark b{color:#fff}
+.hl{background:linear-gradient(180deg,transparent 60%,rgba(232,184,74,.45) 60%);padding:0 2px}
+.dark .hl{background:linear-gradient(180deg,transparent 60%,rgba(232,184,74,.35) 60%)}
+.gold{color:var(--gold)}.blue{color:var(--blue-soft)}.red{color:var(--bad)}
+.big-p{font-size:1.15rem}
 
 /* CTA */
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1a1203;font-weight:900;font-size:1.06rem;letter-spacing:.01em;text-decoration:none;padding:19px 32px;border-radius:12px;box-shadow:0 10px 28px rgba(232,184,74,.35),inset 0 -3px 0 rgba(0,0,0,.12);transition:transform .15s,filter .15s;text-align:center;text-transform:uppercase}
-.cta:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,var(--gold-2),var(--gold));color:#1a1203;font-weight:900;font-size:1.08rem;text-decoration:none;padding:20px 34px;border-radius:12px;box-shadow:0 10px 30px rgba(232,184,74,.4),inset 0 -3px 0 rgba(0,0,0,.14);transition:transform .15s,filter .15s;text-align:center;text-transform:uppercase;line-height:1.25}
+.cta::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.cta:hover{transform:translateY(-2px) scale(1.01);filter:brightness(1.05)}
 .cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.cta-block{margin-top:34px;text-align:center}
 .cta-sub{display:block;font-size:.86rem;color:var(--muted);margin-top:12px}
 .dark .cta-sub,.hero .cta-sub{color:#93a4bb}
 
@@ -49,54 +57,66 @@ h3{font-size:1.12rem;margin-bottom:6px}
 .promobar[hidden]{display:none}
 
 /* Hero */
-.hero{background:radial-gradient(900px 500px at 85% 0%,#163066 0%,transparent 65%),var(--navy);color:#fff;padding:0;overflow:hidden}
+.hero{background:radial-gradient(900px 520px at 85% 0%,#163066 0%,transparent 65%),var(--navy);color:#fff;overflow:hidden}
 .hero-top{border-bottom:1px solid #1a2a45}
-.hero-top .wrap{display:flex;justify-content:space-between;gap:12px;align-items:center;padding-top:14px;padding-bottom:14px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#c9d4e4}
-.hero-top b{color:#fff;font-weight:700}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:end}
-.hero-copy{padding:56px 0 64px}
-.hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:900;margin-bottom:20px;text-transform:uppercase;letter-spacing:-.01em}
-.hero h1 .big{display:block;font-size:1.45em;line-height:1;background:linear-gradient(180deg,var(--gold-2),var(--gold) 55%,var(--gold-dark));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .lead{color:#c3cfdf;margin-bottom:28px;font-size:1.13rem}
+.hero-top .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:#c9d4e4}
+.hero-top b{color:#fff}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:end}
+.hero-copy{padding:52px 0 60px}
+.hook{display:inline-block;background:rgba(224,71,94,.14);border:1px solid rgba(224,71,94,.45);color:#ffb3bf;font-weight:700;font-size:.9rem;padding:7px 14px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(2rem,4.8vw,3.3rem);font-weight:900;margin-bottom:20px}
+.hero h1 em{font-style:normal;background:linear-gradient(180deg,var(--gold-2),var(--gold) 55%,var(--gold-dark));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{color:#c3cfdf;margin-bottom:28px}
 .hero .lead b{color:#fff}
-.hero-photo{position:relative;align-self:end}
-.hero-photo img{width:100%;max-width:440px;margin-left:auto;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent),linear-gradient(90deg,#000 82%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 75%,transparent),linear-gradient(90deg,#000 82%,transparent);mask-composite:intersect}
-.badges{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:.92rem;color:#aebcd0}
+.hero-photo img{width:100%;max-width:420px;margin-left:auto;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent),linear-gradient(90deg,#000 82%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 75%,transparent),linear-gradient(90deg,#000 82%,transparent);mask-composite:intersect}
+.badges{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font-size:.92rem;color:#aebcd0}
 .badges span::before{content:"✓ ";color:var(--gold);font-weight:900}
 
-/* Proof bar */
-.proof{background:var(--navy-2);border-top:1px solid #1a2a45;border-bottom:1px solid #1a2a45;color:#fff;padding:28px 0}
+.proof{background:var(--navy-2);border-top:1px solid #1a2a45;border-bottom:1px solid #1a2a45;color:#fff;padding:26px 0}
 .proof .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
 .proof b{display:block;font-size:clamp(1.9rem,5vw,2.6rem);font-weight:900;line-height:1.05;color:var(--gold)}
-.proof span{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#c3cfdf;font-weight:700}
+.proof span{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#c3cfdf;font-weight:700}
 
-/* Lists */
-.checks{list-style:none;display:grid;gap:12px;margin-top:26px}
-.checks li{display:flex;gap:12px;align-items:flex-start;font-size:1.04rem}
-.checks li::before{content:"✓";flex:0 0 28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;display:grid;place-items:center;font-size:.9rem;margin-top:1px}
-.punch{margin-top:34px;font-size:clamp(1.3rem,3vw,1.75rem);font-weight:900;text-transform:uppercase;line-height:1.2}
-.punch span{color:var(--blue)}
-.dark .punch span{color:var(--blue-soft)}
+/* Ruminações */
+.thoughts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.thought{background:#fff;border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:18px 20px;font-size:1.02rem;font-style:italic;color:#263244;box-shadow:0 2px 0 var(--line);position:relative}
+.thought::before{content:"💭";position:absolute;top:-12px;left:14px;font-style:normal;font-size:1.1rem}
 
-.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+/* Agitação */
+.cost{list-style:none;display:grid;gap:12px;margin-top:26px}
+.cost li{display:flex;gap:14px;align-items:flex-start;background:var(--navy-2);border:1px solid #2a3654;border-left:4px solid var(--bad);border-radius:10px;padding:16px 18px;color:#d6dfeb}
+.cost li::before{content:"✕";color:var(--bad);font-weight:900;flex:0 0 auto}
 
-.pain{list-style:none;display:grid;gap:12px;margin-top:6px}
-.pain li{background:#fff;border-left:4px solid var(--bad);border-radius:8px;padding:14px 18px;box-shadow:0 1px 0 var(--line);font-size:.98rem}
+/* Virada */
+.truth{background:linear-gradient(135deg,#0e1c33,#13284d);border:1px solid #2b4778;border-radius:18px;padding:30px;margin-top:30px}
+.truth p{color:#d6dfeb}
 
-/* 4 steps */
+/* Antes/Depois */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.ba .col{border-radius:var(--radius);padding:26px}
+.ba .before{background:#fff4f5;border:1px solid #f3c9d0}
+.ba .after{background:#effaf3;border:1px solid #b9e6cb}
+.ba h3{font-size:1.1rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px}
+.ba .before h3{color:var(--bad)}.ba .after h3{color:var(--ok)}
+.ba li{list-style:none;padding:7px 0 7px 26px;position:relative;font-size:.98rem}
+.ba .before li::before{content:"✕";position:absolute;left:0;color:var(--bad);font-weight:900}
+.ba .after li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:900}
+
+/* Steps / método */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
-.step{background:var(--navy-2);border:1px solid #23406e;border-radius:var(--radius);padding:24px}
+.step{background:var(--navy-2);border:1px solid #23406e;border-radius:var(--radius);padding:24px;text-align:left}
 .step .n{width:42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:900;font-size:1.3rem;display:grid;place-items:center;margin-bottom:14px}
-.step h3{color:#fff;text-transform:uppercase;letter-spacing:.01em}
-.step p{color:#aebcd0;font-size:.95rem}
-
-/* Method */
+.step h3{color:#fff;text-transform:uppercase}
+.step p{font-size:.95rem}
+.punch{margin-top:34px;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:900;text-transform:uppercase;line-height:1.2}
+.punch span{color:var(--blue)}
+.dark .punch{color:#fff}.dark .punch span{color:var(--blue-soft)}
 .method{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-.mcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden}
+.mcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
 .mcard .l{font-size:2.6rem;font-weight:900;line-height:1;color:var(--blue);margin-bottom:8px}
 .mcard p{color:var(--muted);font-size:.95rem}
 
-/* Modules */
+/* Grade */
 .modules{display:grid;gap:10px;margin-top:36px}
 .modules details{background:#fff;border:1px solid var(--line);border-radius:12px}
 .modules summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 18px}
@@ -109,52 +129,56 @@ h3{font-size:1.12rem;margin-bottom:6px}
 .modules ol{margin:10px 0 0 20px}
 .modules .new .tag{background:var(--gold);color:#1a1203}
 
-/* Practice */
 .practice{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px}
-.pcard{background:var(--navy-2);border:1px solid #23406e;border-radius:var(--radius);padding:20px;color:#dbe4f1;font-size:.95rem}
+.pcard{background:var(--navy-2);border:1px solid #23406e;border-radius:var(--radius);padding:20px;color:#dbe4f1;font-size:.95rem;text-align:left}
 .pcard .i{font-size:1.6rem;margin-bottom:8px}
 .pcard b{display:block;color:#fff;margin-bottom:4px}
 
-/* Instructor */
+/* Instrutor */
 .instructor{display:grid;grid-template-columns:360px 1fr;gap:48px;align-items:center}
 .instructor img{border-radius:20px;box-shadow:0 20px 50px rgba(7,16,31,.25)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
 .stats div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
 .stats b{display:block;font-size:1.7rem;font-weight:900;color:var(--blue);line-height:1.1}
-.stats span{font-size:.8rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.stats span{font-size:.78rem;color:var(--muted);font-weight:700;text-transform:uppercase}
 .quote{font-size:1.25rem;font-weight:900;text-transform:uppercase;line-height:1.25}
 .quote span{color:var(--gold-dark)}
 
-/* Offer */
+/* Oferta */
 .offer{max-width:680px;margin:36px auto 0;background:#fff;color:var(--ink);border-radius:20px;padding:34px;box-shadow:0 24px 70px rgba(0,0,0,.45);border:3px solid var(--gold);text-align:left}
-.offer h3{font-size:1.25rem;margin-bottom:4px}
+.offer h3{font-size:1.25rem;margin-bottom:4px;color:var(--ink)}
 .offer .sub{color:var(--muted);font-size:.92rem;margin-bottom:12px}
 .offer ul{list-style:none;margin:6px 0 18px}
-.offer li{padding:9px 0 9px 28px;border-bottom:1px dashed var(--line);font-size:.97rem;position:relative}
+.offer li{padding:9px 0 9px 28px;border-bottom:1px dashed var(--line);font-size:.97rem;position:relative;color:var(--ink)}
 .offer li::before{content:"✓";position:absolute;left:2px;color:var(--ok);font-weight:900}
 .offer .bonus li::before{content:"★";color:var(--gold-dark)}
 .offer .lbl{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-top:10px}
 .price{text-align:center;margin:20px 0 22px}
 .price .inst{font-size:1rem;color:var(--muted)}
-.price .big{font-size:clamp(2.7rem,9vw,3.8rem);font-weight:900;color:var(--ink);line-height:1.05}
+.price .big{font-size:clamp(2.8rem,9vw,3.9rem);font-weight:900;color:var(--ink);line-height:1.05}
 .price .cash{font-size:.95rem;color:var(--muted)}
 .offer .cta{width:100%}
 .secure{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:.82rem;color:var(--muted)}
-.note{font-size:.8rem;color:var(--muted);margin-top:16px;text-align:center}
+.offer .note{font-size:.8rem;color:var(--muted);margin-top:16px;text-align:center}
+.math{max-width:680px;margin:28px auto 0;background:var(--navy-2);border:1px dashed #3a5585;border-radius:14px;padding:20px 24px;text-align:left;font-size:.98rem}
 
-/* Guarantee */
 .guarantee{display:grid;grid-template-columns:150px 1fr;gap:30px;align-items:center;max-width:840px;margin:0 auto}
 .seal{width:150px;height:150px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;text-align:center;font-weight:900;line-height:1.1;border:6px double #fff;box-shadow:0 0 0 4px var(--ok)}
 .seal b{font-size:2.6rem;display:block}
 
-/* Fit */
+/* Duas escolhas */
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px;text-align:left}
+.choice{border-radius:var(--radius);padding:26px}
+.choice.a{background:var(--navy-2);border:1px solid #2a3654}
+.choice.b{background:linear-gradient(135deg,#1a2f55,#13284d);border:2px solid var(--gold)}
+.choice h3{color:#fff;margin-bottom:10px}
+
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
 .fit li{list-style:none;padding:7px 0 7px 28px;position:relative;font-size:.97rem;color:var(--muted)}
 .fit.yes li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:900}
 .fit.no li::before{content:"✕";position:absolute;left:0;color:var(--bad);font-weight:900}
 
-/* FAQ */
 .faq{max-width:800px;margin:32px auto 0}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
 .faq summary{cursor:pointer;font-weight:750;padding:18px 48px 18px 20px;list-style:none;position:relative}
@@ -167,35 +191,30 @@ footer{background:#040a14;color:#7f8fa6;font-size:.84rem;padding:32px 0 100px;te
 footer a{color:#b3c1d4}
 footer p+p{margin-top:8px}
 
-/* Sticky mobile CTA */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(7,16,31,.97);border-top:1px solid #1a2a45;padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;transform:translateY(110%);transition:transform .25s}
 .sticky.show{transform:none}
 .sticky .cta{width:100%;padding:15px;font-size:.98rem}
 
-@media (max-width:900px){
-  .steps{grid-template-columns:1fr 1fr}
-  .practice{grid-template-columns:1fr 1fr}
-  .method{grid-template-columns:1fr 1fr}
-}
+@media (max-width:900px){.steps,.practice,.method{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){
-  section{padding:58px 0}
+  section{padding:60px 0}
   .hero-top .wrap{font-size:.66rem;letter-spacing:.14em}
   .hero-top .ig{display:none}
-  .hero-grid,.split,.instructor,.guarantee,.grid-2{grid-template-columns:1fr}
-  .hero-copy{padding:36px 0 8px}
-  .hero-photo img{max-width:300px;margin:0 auto}
-  .hero .cta{width:100%}
+  .hero-grid,.instructor,.guarantee,.grid-2,.ba,.choices,.thoughts{grid-template-columns:1fr}
+  .hero-copy{padding:34px 0 8px}
+  .hero-photo img{max-width:290px;margin:0 auto}
+  .hero .cta,.cta-block .cta{width:100%}
   .steps,.method{grid-template-columns:1fr}
-  .instructor{gap:28px}
   .instructor img{max-width:320px;margin:0 auto}
   .guarantee{text-align:center;justify-items:center}
   .modules summary{grid-template-columns:auto 1fr}
   .modules .c{display:none}
   .sticky{display:block}
   .offer{padding:26px 20px}
-  .proof span{font-size:.68rem;letter-spacing:.06em}
+  .proof span{font-size:.66rem;letter-spacing:.05em}
+  .truth{padding:22px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,.sticky{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta,.sticky{transition:none}.cta::after{animation:none;display:none}}
 </style>
 </head>
 <body>
@@ -207,12 +226,12 @@ footer p+p{margin-top:8px}
   <div class="hero-top"><div class="wrap"><span><b>Vitor Mendes</b> | Eng. Mecânico NR-13</span><span class="ig">@engvitormendesnr13</span></div></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow">Programa Engenheiro Autônomo NR13</span>
-      <h1>Transforme a <span class="big">NR-13</span> em uma nova frente de faturamento</h1>
-      <p class="lead">Para engenheiros mecânicos que querem prestar serviços por conta própria: aprenda a <b>enquadrar equipamentos, inspecionar, documentar, emitir ART, precificar e conquistar seus primeiros clientes</b>, mesmo começando com pouca experiência em NR-13.</p>
-      <a class="cta" href="#oferta" data-cta>Quero começar minha atuação em NR-13 →</a>
-      <span class="cta-sub">12 módulos · 65 aulas · Garantia de 7 dias</span>
-      <div class="badges"><span>Método M.E.S.T.R.E. NR13</span><span>Casos reais de campo e bancada</span><span>Modelos e planilhas inclusos</span></div>
+      <span class="hook">Para engenheiros mecânicos cansados de esperar uma oportunidade</span>
+      <h1>Você não estudou 5 anos de engenharia para ficar <em>esperando uma vaga</em>.</h1>
+      <p class="lead">Existe um mercado <b>obrigatório por lei</b>, recorrente e que muitos engenheiros nem enxergam: a <b>NR-13</b>. Aprenda o caminho completo para prestar serviços em caldeiras e vasos de pressão <b>por conta própria</b> — do primeiro cliente à entrega do relatório com ART.</p>
+      <a class="cta" href="#oferta" data-cta>Quero minha nova fonte de renda →</a>
+      <span class="cta-sub">12 módulos · 65 aulas · 7 dias de garantia total</span>
+      <div class="badges"><span>Método M.E.S.T.R.E. NR13</span><span>Casos reais de campo</span><span>Modelos prontos</span></div>
     </div>
     <div class="hero-photo"><img src="/img/vitor.webp" width="460" height="984" alt="Vitor Mendes, engenheiro mecânico especialista em NR-13" fetchpriority="high"></div>
   </div>
@@ -226,48 +245,96 @@ footer p+p{margin-top:8px}
   </div>
 </div>
 
-<!-- PARA QUEM -->
-<section>
-  <div class="wrap split">
-    <div>
-      <span class="eyebrow">Esse caminho é para você se…</span>
-      <h2>Você tem a formação. Falta transformar ela em serviço.</h2>
-      <ul class="checks">
-        <li>É engenheiro mecânico</li>
-        <li>Está no início da carreira</li>
-        <li>Ganha menos do que gostaria</li>
-        <li>Quer uma segunda fonte de renda</li>
-        <li>Quer prestar serviços por conta própria</li>
-        <li>Olha para a NR-13 e não sabe por onde começar</li>
-      </ul>
-      <p class="punch">Você não precisa abandonar a engenharia.<br><span>Precisa aprender a usá-la.</span></p>
+<!-- RUMINAÇÕES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="center narrow" style="padding:0">
+      <span class="eyebrow">Seja honesto com você</span>
+      <h2>Algum desses pensamentos já te tirou o sono?</h2>
+      <p class="lead">Eles aparecem no banho, no trânsito, antes de dormir. E voltam. Todo. Santo. Dia.</p>
     </div>
-    <div>
-      <p class="lead" style="margin-bottom:16px">Toda empresa com caldeira ou reservatório de ar comprimido precisa cumprir a NR-13. A demanda existe. O que trava a maioria dos engenheiros é outra coisa:</p>
-      <ul class="pain">
-        <li>Medo de aceitar um serviço e não saber por onde começar, nem até onde pode atuar.</li>
-        <li>Insegurança para conversar com o cliente, montar proposta e emitir ART.</li>
-        <li>Não saber quanto cobrar e acabar no chute.</li>
-        <li>Diploma na mão e dependência total do salário ou de vagas que não aparecem.</li>
-        <li>A sensação de ficar para trás enquanto outros se posicionam em mercados especializados.</li>
-      </ul>
+    <div class="thoughts">
+      <div class="thought">“Será que eu escolhi o curso errado?”</div>
+      <div class="thought">“Estudei 5 anos de cálculo pra ganhar isso?”</div>
+      <div class="thought">“Meu CREA está na gaveta servindo pra quê?”</div>
+      <div class="thought">“Gente da minha turma já está faturando… e eu ainda aqui.”</div>
+      <div class="thought">“E se eu assinar uma ART e der problema? Minha carreira acaba.”</div>
+      <div class="thought">“Quanto eu cobro? Se cobrar caro, perco. Se cobrar barato, me queimo.”</div>
+      <div class="thought">“Vou passar a vida inteira dependendo de chefe e de vaga?”</div>
+      <div class="thought">“Eu sei que sou capaz. Só não sei por onde começar.”</div>
     </div>
+    <p class="center big-p" style="margin-top:34px"><b>Se você se reconheceu em pelo menos um, esta página foi escrita para você.</b></p>
   </div>
 </section>
 
-<!-- 4 COISAS -->
+<!-- AGITAÇÃO -->
+<section class="dark">
+  <div class="narrow">
+    <span class="eyebrow">O problema não é você</span>
+    <h2>A faculdade te ensinou a calcular. <span class="gold">Ninguém te ensinou a faturar.</span></h2>
+    <p class="big-p">Você saiu com diploma, conhecimento técnico e um CREA. Mas ninguém te mostrou como transformar isso em <b>serviço, cliente e dinheiro no bolso</b>. E enquanto você não descobre, a conta chega:</p>
+    <ul class="cost">
+      <li>Mais um mês dependendo de um salário que não acompanha o que você estudou.</li>
+      <li>Mais currículos enviados para vagas que não respondem.</li>
+      <li>Mais tempo vendo outros engenheiros se posicionarem em nichos especializados — e você ficando para trás.</li>
+      <li>Mais uma vez adiando a decisão por medo de errar, de assinar algo errado, de cobrar errado.</li>
+    </ul>
+    <p class="big-p" style="margin-top:26px">O pior não é ganhar pouco. <span class="hl"><b>É saber que você poderia estar ganhando mais — e não saber como.</b></span></p>
+  </div>
+</section>
+
+<!-- VIRADA -->
+<section>
+  <div class="narrow">
+    <span class="eyebrow">A virada</span>
+    <h2>Enquanto você procura vaga, <span class="blue" style="color:var(--blue)">existe demanda procurando engenheiro.</span></h2>
+    <p class="big-p">Pense em quantas empresas existem na sua cidade com <b>um compressor de ar e um reservatório</b>. Oficinas, indústrias, hospitais, lavanderias, frigoríficos, postos, fábricas de todo tamanho. Muitas também têm caldeira.</p>
+    <p class="big-p">Todas elas são <b>obrigadas pela NR-13</b> a manter seus equipamentos inspecionados, documentados e dentro do prazo. E esse prazo <b>vence de novo</b>. É demanda que se repete, ano após ano.</p>
+    <p class="big-p">Quem pode assinar esse serviço? <span class="hl"><b>Engenheiro com as atribuições certas no CREA.</b></span> Ou seja: possivelmente, você.</p>
+    <div class="truth">
+      <p class="big-p" style="margin:0"><b style="color:#fff">O que falta não é mercado. É o caminho.</b> Saber enquadrar o equipamento, o que verificar em campo, como documentar, quando emitir ART, quanto cobrar e como chegar no cliente sem parecer amador. <b style="color:var(--gold)">É exatamente isso que eu vou te entregar.</b></p>
+    </div>
+    <div class="cta-block"><a class="cta" href="#oferta" data-cta>Quero aprender esse caminho →</a></div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO -->
 <section class="dark">
   <div class="wrap center">
-    <span class="eyebrow">O caminho</span>
-    <h2>Na prática, você precisa aprender 4 coisas</h2>
-    <div class="steps" style="text-align:left">
+    <span class="eyebrow">Apresentando</span>
+    <h2>Programa <span class="gold">Engenheiro Autônomo NR13</span></h2>
+    <p class="lead" style="max-width:760px;margin:0 auto">O programa que pega o engenheiro mecânico pela mão e leva <b>da primeira oportunidade à entrega</b> — com método, modelos prontos, casos reais e responsabilidade técnica. Na prática, você precisa aprender 4 coisas:</p>
+    <div class="steps">
       <div class="step"><div class="n">1</div><h3>Identificar oportunidades</h3><p>Onde existe demanda de NR-13 e quais serviços fazem sentido para quem está começando.</p></div>
       <div class="step"><div class="n">2</div><h3>Montar o serviço</h3><p>Escopo, documentação, responsabilidades e limites de atuação.</p></div>
       <div class="step"><div class="n">3</div><h3>Vender</h3><p>Abordagem, proposta comercial e preço calculado — sem chute.</p></div>
       <div class="step"><div class="n">4</div><h3>Entregar</h3><p>Campo, evidências, relatório, ART e pós-venda com recorrência.</p></div>
     </div>
-    <p class="punch" style="margin-top:44px">Da primeira oportunidade <span>à entrega.</span></p>
-    <div style="margin-top:28px"><a class="cta" href="#oferta" data-cta>Quero aprender esse caminho →</a></div>
+    <p class="punch">Você não precisa abandonar a engenharia.<br><span>Precisa aprender a usá-la.</span></p>
+  </div>
+</section>
+
+<!-- ANTES / DEPOIS -->
+<section>
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">A transformação</span><h2>Quem você é hoje × quem você vai se tornar</h2></div>
+    <div class="ba">
+      <div class="col before"><h3>Antes do programa</h3><ul>
+        <li>Olha para a NR-13 e não sabe nem por onde começar</li>
+        <li>Medo de assinar ART e assumir responsabilidade</li>
+        <li>Não sabe quanto cobrar nem como montar proposta</li>
+        <li>Depende 100% de salário ou de vaga aparecer</li>
+        <li>Se sente “só mais um engenheiro” no mercado</li>
+      </ul></div>
+      <div class="col after"><h3>Depois do programa</h3><ul>
+        <li>Enquadra caldeiras e vasos de pressão com critério</li>
+        <li>Sabe o que verificar, o que documentar e quando buscar apoio</li>
+        <li>Monta proposta profissional com preço calculado</li>
+        <li>Tem um plano de 30 dias para buscar os primeiros clientes</li>
+        <li>Se posiciona como especialista num nicho valorizado</li>
+      </ul></div>
+    </div>
+    <div class="cta-block"><a class="cta" href="#oferta" data-cta>Quero essa transformação →</a></div>
   </div>
 </section>
 
@@ -277,11 +344,11 @@ footer p+p{margin-top:8px}
     <div class="center">
       <span class="eyebrow">O método</span>
       <h2>Método M.E.S.T.R.E. NR13</h2>
-      <p class="lead">Não é um curso enciclopédico sobre todos os códigos. É uma sequência direta ao essencial para você começar com responsabilidade — focada em caldeiras e vasos de pressão de sistemas de ar comprimido.</p>
+      <p class="lead" style="max-width:740px;margin:0 auto">Não é um curso enciclopédico com todos os códigos do mundo. É uma sequência direta ao essencial, focada em <b>caldeiras e vasos de pressão de sistemas de ar comprimido</b> — onde está a demanda de entrada.</p>
     </div>
     <div class="method">
       <div class="mcard"><div class="l">M</div><h3>Mercado e Limites</h3><p>Oportunidades, responsabilidades, atribuições no CREA e até onde você pode ir.</p></div>
-      <div class="mcard"><div class="l">E</div><h3>Enquadramento</h3><p>Reconhecer e classificar equipamentos: P × V, classe de fluido, grupo de risco e categoria.</p></div>
+      <div class="mcard"><div class="l">E</div><h3>Enquadramento</h3><p>Classificar equipamentos: P × V, classe de fluido, grupo de risco e categoria.</p></div>
       <div class="mcard"><div class="l">S</div><h3>Segurança e Documentação</h3><p>Dispositivos, instalação, registros e documentos essenciais da norma.</p></div>
       <div class="mcard"><div class="l">T</div><h3>Trabalho de Campo</h3><p>Planejar o levantamento, preparar instrumentos e registrar evidências rastreáveis.</p></div>
       <div class="mcard"><div class="l">R</div><h3>Relatório e Regularização</h3><p>Relatório, pendências, recomendações e controle de vencimentos.</p></div>
@@ -294,9 +361,9 @@ footer p+p{margin-top:8px}
 <section id="conteudo">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">Grade curricular</span>
+      <span class="eyebrow">Grade curricular completa</span>
       <h2>12 módulos. 65 aulas. Uma entrega prática em cada etapa.</h2>
-      <p class="lead">Você não avança só para concluir vídeos: cada módulo gera uma entrega que forma o seu dossiê ao longo da jornada.</p>
+      <p class="lead">Você não avança só assistindo vídeo: cada módulo gera uma entrega que forma o seu dossiê profissional.</p>
     </div>
     <div class="modules" id="modules"></div>
   </div>
@@ -307,25 +374,26 @@ footer p+p{margin-top:8px}
   <div class="wrap center">
     <span class="eyebrow">Não fica só na teoria</span>
     <h2>Você acompanha casos reais, do preparo à documentação</h2>
-    <p class="lead">Nos módulos práticos, cada aula segue um caso: contexto, preparação, execução, interpretação dos resultados e registro da entrega.</p>
-    <div class="practice" style="text-align:left">
+    <p class="lead" style="max-width:740px;margin:0 auto">Cada aula prática segue um caso: contexto, preparação, execução, interpretação dos resultados e registro da entrega.</p>
+    <div class="practice">
       <div class="pcard"><div class="i" aria-hidden="true">📝</div><b>ART na prática</b>Do escopo ao preenchimento e conferência em tela.</div>
       <div class="pcard"><div class="i" aria-hidden="true">🛢️</div><b>Reservatório de ar</b>Inspeção de um caso real em sistema de ar comprimido.</div>
       <div class="pcard"><div class="i" aria-hidden="true">🔥</div><b>Caldeira</b>Componentes, atividades realizadas e evidências.</div>
       <div class="pcard"><div class="i" aria-hidden="true">⏲️</div><b>Manômetro</b>Avaliação em bancada, leituras e registro.</div>
       <div class="pcard"><div class="i" aria-hidden="true">🔧</div><b>Válvula de segurança</b>Ensaio em bancada e interpretação dos resultados.</div>
     </div>
+    <div class="cta-block"><a class="cta" href="#oferta" data-cta>Quero acesso ao programa →</a></div>
   </div>
 </section>
 
 <!-- INSTRUTOR -->
 <section class="alt">
   <div class="wrap instructor">
-    <img src="/img/vitor-campo.webp" width="460" height="880" loading="lazy" alt="Vitor Mendes em campo, ao lado de um vaso de pressão">
+    <img src="/img/vitor-campo.webp" width="460" height="880" loading="lazy" decoding="async" alt="Vitor Mendes em campo, ao lado de um vaso de pressão">
     <div>
       <span class="eyebrow">Quem vai te ensinar</span>
       <h2>Vitor Mendes</h2>
-      <p class="lead">Engenheiro mecânico atuante em NR-13. Campo, empresas, treinamento e prestação de serviços fazem parte da minha rotina profissional — e foi nessa rotina que construí o método que ensino no programa.</p>
+      <p class="lead">Engenheiro mecânico atuante em NR-13. Campo, empresas, treinamento e prestação de serviços fazem parte da minha rotina profissional. Eu também já estive do lado de quem não sabia por onde começar — e foi errando, acertando e fazendo que construí o método que hoje ensino.</p>
       <div class="stats">
         <div><b>+150</b><span>Empresas</span></div>
         <div><b>+500</b><span>Vasos de pressão</span></div>
@@ -339,9 +407,8 @@ footer p+p{margin-top:8px}
 <!-- OFERTA -->
 <section class="dark" id="oferta">
   <div class="wrap center">
-    <span class="eyebrow">Inscrição</span>
-    <h2>Tudo o que você recebe no programa</h2>
-    <p class="lead">Dependendo do escopo e da complexidade, um único serviço pode gerar receita superior ao investimento no programa.</p>
+    <span class="eyebrow">Sua inscrição</span>
+    <h2>Tudo o que você recebe hoje</h2>
     <div class="offer">
       <h3>Programa Engenheiro Autônomo NR13</h3>
       <p class="sub">Método M.E.S.T.R.E. NR13 · 12 módulos · 65 aulas</p>
@@ -354,7 +421,7 @@ footer p+p{margin-top:8px}
         <li>Área de membros e suporte por e-mail</li>
         <li>Certificado de conclusão de curso livre</li>
       </ul>
-      <p class="lbl">Bônus</p>
+      <p class="lbl">Bônus exclusivos</p>
       <ul class="bonus">
         <li>Modelo de Proposta Comercial Profissional (editável)</li>
         <li>Calculadora Didática de Formação de Preço</li>
@@ -367,9 +434,12 @@ footer p+p{margin-top:8px}
         <div class="big" data-cfg="priceMain"></div>
         <div class="cash" data-cfg="priceSub"></div>
       </div>
-      <a class="cta" href="#" data-checkout>Quero me inscrever agora →</a>
-      <div class="secure"><span>🔒 Compra segura via Hotmart</span><span>💳 Cartão, Pix ou boleto</span><span>✅ Garantia de 7 dias</span></div>
-      <p class="note">O software InspectorPRO é apresentado no programa como opção complementar e não está incluído no valor. Ele não é necessário para concluir o curso.</p>
+      <a class="cta" href="#" data-checkout>Sim! Quero me inscrever agora →</a>
+      <div class="secure"><span>🔒 Compra segura via Hotmart</span><span>💳 Cartão, Pix ou boleto</span><span>✅ 7 dias de garantia</span></div>
+      <p class="note">O software InspectorPRO é apresentado no programa como opção complementar, vendido à parte, e não é necessário para concluir o curso.</p>
+    </div>
+    <div class="math">
+      <b>Faça a conta:</b> dependendo do escopo, da região e da complexidade, <b>um único contrato de inspeção pode pagar o programa inteiro</b>. Cada cliente atendido volta a precisar de você no próximo vencimento. <span style="color:#8fa2bd">(É uma possibilidade, não uma garantia: o resultado depende da sua aplicação, prospecção e mercado.)</span>
     </div>
   </div>
 </section>
@@ -379,16 +449,29 @@ footer p+p{margin-top:8px}
   <div class="wrap guarantee">
     <div class="seal"><div><b>7</b>DIAS DE<br>GARANTIA</div></div>
     <div>
-      <h2>Risco zero para você</h2>
-      <p class="lead">Entre, assista às aulas e conheça os materiais. Se em até 7 dias você decidir que o programa não é para você, é só solicitar o reembolso pela Hotmart e recebe 100% do valor de volta.</p>
+      <h2>O risco é todo meu</h2>
+      <p class="lead">Entre, assista às aulas, baixe os materiais. Se em até 7 dias você achar que o programa não é para você, peça o reembolso pela Hotmart e recebe <b>100% do seu dinheiro de volta</b>. Sem perguntas, sem letras miúdas.</p>
     </div>
+  </div>
+</section>
+
+<!-- DUAS ESCOLHAS -->
+<section class="dark">
+  <div class="wrap center">
+    <span class="eyebrow">A decisão é sua</span>
+    <h2>Agora você tem dois caminhos</h2>
+    <div class="choices">
+      <div class="choice a"><h3>❌ Fechar esta página</h3><p>E continuar exatamente onde está. Os mesmos pensamentos no banho. O mesmo salário. A mesma sensação de que poderia ser diferente. Daqui a um ano, a mesma pergunta: <i>“e se eu tivesse começado?”</i></p></div>
+      <div class="choice b"><h3>✅ Entrar no programa hoje</h3><p>E ter, pela primeira vez, um caminho claro: o que estudar, o que fazer em campo, como documentar, quanto cobrar e onde encontrar os primeiros clientes. <b>Com 7 dias de garantia para decidir sem risco.</b></p></div>
+    </div>
+    <div class="cta-block"><a class="cta" href="#" data-checkout>Eu escolho começar agora →</a><span class="cta-sub">Acesso pela Hotmart · Garantia de 7 dias</span></div>
   </div>
 </section>
 
 <!-- FIT -->
 <section class="alt">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">Transparência</span><h2>Para quem é — e para quem não é</h2></div>
+    <div class="center"><span class="eyebrow">Transparência total</span><h2>Para quem é — e para quem não é</h2></div>
     <div class="grid-2">
       <div class="card"><h3>✅ É para você se…</h3>
         <ul class="fit yes">
@@ -414,20 +497,20 @@ footer p+p{margin-top:8px}
 <!-- FAQ -->
 <section>
   <div class="wrap">
-    <div class="center"><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas e respostas</h2></div>
+    <div class="center"><span class="eyebrow">Ainda com dúvida?</span><h2>Perguntas frequentes</h2></div>
     <div class="faq">
       <details><summary>Posso começar sem experiência em NR-13?</summary><p>Sim. O programa foi desenhado para quem tem pouca ou nenhuma vivência em NR-13. Ele parte do mercado e dos limites de atuação, passa pelo enquadramento dos equipamentos e chega até o campo, a documentação e a venda.</p></details>
-      <details><summary>O curso me transforma em PLH?</summary><p>Não. O certificado é de conclusão de curso livre. Ele não amplia atribuições profissionais nem substitui registro, experiência ou responsabilidade técnica. No Módulo 01 você aprende a entender o papel do PLH, do CREA e da ART e a avaliar o que suas atribuições permitem.</p></details>
-      <details><summary>Preciso estudar ASME e API antes de começar?</summary><p>Não para o ponto de partida. O programa foca no essencial para caldeiras e vasos de pressão de sistemas de ar comprimido. Conteúdos avançados — ASME, API, cálculos e avaliação de integridade — são indicados como próximos passos.</p></details>
-      <details><summary>Vou aprender a precificar e conseguir clientes?</summary><p>Sim. O Módulo 07 trata de escolha do cliente inicial, escopo, proposta comercial, ART e precificação considerando horas, deslocamento, custos, tributos, risco e margem. O Módulo 09 fecha com um plano de 30 dias para os primeiros clientes.</p></details>
-      <details><summary>O faturamento é garantido?</summary><p>Não. O resultado depende da aplicação do método, da prospecção, do preço praticado, da região, da experiência, das suas atribuições profissionais e da demanda encontrada. O programa entrega direção, ferramentas e uma sequência de execução.</p></details>
-      <details><summary>O InspectorPRO está incluído?</summary><p>Não. O InspectorPRO é apresentado no Módulo 08 como opção para automatizar a operação e é vendido separadamente. Você recebe as planilhas didáticas necessárias para acompanhar e concluir todo o programa sem ele.</p></details>
+      <details><summary>O curso me transforma em PLH?</summary><p>Não. O certificado é de conclusão de curso livre: não amplia atribuições profissionais nem substitui registro, experiência ou responsabilidade técnica. No Módulo 01 você aprende o papel do PLH, do CREA e da ART e como avaliar o que as suas atribuições permitem.</p></details>
+      <details><summary>Preciso estudar ASME e API antes de começar?</summary><p>Não para o ponto de partida. O programa foca no essencial para caldeiras e vasos de pressão de sistemas de ar comprimido. ASME, API, cálculos e avaliação de integridade são indicados como próximos passos.</p></details>
+      <details><summary>Vou aprender a precificar e conseguir clientes?</summary><p>Sim. O Módulo 07 trata de escolha do cliente inicial, escopo, proposta comercial, ART e precificação (horas, deslocamento, custos, tributos, risco e margem). O Módulo 09 fecha com um plano de 30 dias para os primeiros clientes.</p></details>
+      <details><summary>O faturamento é garantido?</summary><p>Não. O resultado depende da aplicação do método, da prospecção, do preço praticado, da região, da experiência, das suas atribuições e da demanda encontrada. O programa entrega direção, ferramentas e uma sequência de execução.</p></details>
+      <details><summary>O InspectorPRO está incluído?</summary><p>Não. Ele é apresentado no Módulo 08 como opção para automatizar a operação e é vendido separadamente. Você recebe as planilhas didáticas necessárias para concluir todo o programa sem ele.</p></details>
       <details><summary>Como funciona o acesso?</summary><p>O acesso à área de membros é liberado após a confirmação do pagamento. Os conteúdos seguem as regras de liberação informadas para a turma, e você estuda no seu ritmo, pelo computador ou celular.</p></details>
       <details><summary>Como funciona a garantia?</summary><p>Você tem 7 dias a partir da compra para desistir e pedir a devolução integral dos valores pagos, direto pela Hotmart.</p></details>
     </div>
-    <div class="center" style="margin-top:40px">
-      <a class="cta" href="#oferta" data-cta>Quero me tornar Engenheiro Autônomo NR13 →</a>
-      <span class="cta-sub">Garantia de 7 dias · Acesso pela Hotmart</span>
+    <div class="cta-block">
+      <a class="cta" href="#" data-checkout>Quero me tornar Engenheiro Autônomo NR13 →</a>
+      <span class="cta-sub">Sua próxima fonte de renda começa com uma decisão.</span>
     </div>
   </div>
 </section>
@@ -436,11 +519,11 @@ footer p+p{margin-top:8px}
   <div class="wrap">
     <p>© <span id="year"></span> Programa Engenheiro Autônomo NR13 · Vitor Mendes da Silva</p>
     <p>Instagram: <a href="https://instagram.com/engvitormendesnr13" rel="noopener" target="_blank">@engvitormendesnr13</a></p>
-    <p>Curso livre de caráter educacional. Não confere atribuição profissional nem certificação de PLH. Os resultados dependem da aplicação, da prospecção e das condições de cada profissional e mercado; valores citados são possibilidades, não garantia.</p>
+    <p>Curso livre de caráter educacional. Não confere atribuição profissional nem certificação de PLH. Os resultados dependem da aplicação, da prospecção e das condições de cada profissional e mercado; valores e possibilidades citados não são garantia de resultado.</p>
   </div>
 </footer>
 
-<div class="sticky" id="sticky"><a class="cta" href="#oferta" data-cta>Quero me inscrever →</a></div>
+<div class="sticky" id="sticky"><a class="cta" href="#oferta" data-cta>Quero me inscrever agora →</a></div>
 
 <script>
 /* ============================================================
