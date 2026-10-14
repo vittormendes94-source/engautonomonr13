@@ -80,10 +80,10 @@ p.l b{color:#fff}
 .abre .acao{margin-top:20px}
 
 /* 2. Números */
-.nums{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
-.nums div{background:var(--sup);border:1px solid var(--borda);border-radius:var(--raio);padding:18px;text-align:center}
-.nums b{display:block;font-family:var(--display);font-weight:400;font-size:56px;line-height:.95;color:var(--latao)}
-.nums span{font-size:15px;color:var(--suave)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.nums div{background:var(--sup);border:1px solid var(--borda);border-radius:14px;padding:10px 6px;text-align:center}
+.nums b{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:.95;color:var(--latao)}
+.nums span{font-size:11px;color:var(--suave);line-height:1.2;display:block}
 
 /* 3. Pensamentos */
 .falas{list-style:none;display:grid;gap:10px;margin-top:20px}
@@ -128,7 +128,7 @@ p.l b{color:#fff}
 
 /* 7. Instrutor */
 .guia{display:grid;gap:18px}
-.guia .retrato{width:100%;max-width:240px;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:2px solid var(--latao);box-shadow:0 30px 60px -24px rgba(0,0,0,.8);margin:0 auto}
+.guia .retrato{width:100%;max-width:200px;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:2px solid var(--latao);box-shadow:0 30px 60px -24px rgba(0,0,0,.8);margin:0 auto}
 .guia .retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .cit{font-family:var(--display);font-size:clamp(24px,6.2vw,30px);line-height:1.02;color:#fff;margin-top:10px}
 .cit span{color:var(--latao)}
@@ -258,7 +258,10 @@ footer a{color:#c8d3e2}
   .abre p.l{font-size:20px;max-width:46ch}
   .abre .acao{justify-items:start;text-align:left}
   h2.d{font-size:clamp(54px,5.6vw,84px);margin-bottom:16px}
-  .nums{grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+  .nums{gap:12px;margin-top:18px;max-width:520px}
+  .nums div{padding:14px 8px}
+  .nums b{font-size:40px}
+  .nums span{font-size:13px}
   .falas{grid-template-columns:1fr 1fr}
   .fecho{max-width:60ch;margin-left:auto;margin-right:auto}
   .pre{max-width:none}
@@ -271,9 +274,6 @@ footer a{color:#c8d3e2}
   .lib-sec p.l{max-width:40ch}
   .lib{padding:14px 44px 6px;margin:24px auto}
   p.l{font-size:20px;max-width:56ch}
-  .nums div{padding:34px}
-  .nums b{font-size:88px}
-  .nums span{font-size:17px}
   .falas{max-width:960px;margin-left:auto;margin-right:auto;gap:14px}
   .falas li{padding:20px 22px;font-size:19px}
   .fecho{font-size:21px}
@@ -378,19 +378,6 @@ footer a{color:#c8d3e2}
   </div>
 </section>
 
-<!-- 2. NÚMEROS -->
-<section class="tela alt centro">
-  <div class="wrap">
-    <h2 class="d" data-in>Quem ensina <span class="ouro">já fez</span></h2>
-    <p class="l" data-in style="--i:1">Campo, empresas, treinamento e prestação de serviços em NR-13 fazem parte da minha rotina.</p>
-    <div class="nums">
-      <div data-in style="--i:2"><b>+150</b><span>empresas atendidas</span></div>
-      <div data-in style="--i:3"><b>+500</b><span>vasos de pressão inspecionados</span></div>
-      <div data-in style="--i:4"><b>+600</b><span>alunos treinados</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- 3. RECONHECIMENTO -->
 <section class="tela centro">
   <div class="wrap">
@@ -402,13 +389,14 @@ footer a{color:#c8d3e2}
       <li data-in style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>“Eu sei que sou capaz. Só não sei por onde começar.”</li>
     </ul>
     <p class="fecho" data-in style="--i:5">Se você se reconheceu em pelo menos um: o problema não é você. É a falta de um caminho claro.</p>
+    <div class="acao" data-in style="--i:6"><a class="btn" href="#" data-checkout>Quero esse caminho</a></div>
   </div>
 </section>
 
 <!-- 4. NÃO É NORMAL -->
 <section class="tela alt centro">
   <div class="wrap">
-    <p class="pre" data-in style="margin-left:auto;margin-right:auto">Ter um diploma de engenharia mecânica e não saber transformar isso em renda</p>
+    <p class="pre" data-in style="margin-left:auto;margin-right:auto">Ter um diploma de engenharia e não saber transformar isso em renda</p>
     <h2 class="d naonormal" data-in style="--i:1"><span class="vermelho">Não</span> é normal.</h2>
     <p class="soco" data-in style="--i:2">O problema não é falta de diploma. <span class="ouro">É falta de uma oferta clara.</span></p>
     <div class="acao" data-in style="--i:3"><a class="btn" href="#" data-checkout>Quero mudar isso hoje</a></div>
@@ -468,9 +456,10 @@ footer a{color:#c8d3e2}
     <div class="retrato" data-in><img src="/img/vitor-campo2.webp" width="600" height="800" loading="lazy" decoding="async" alt="Vitor Mendes em campo, de capacete e óculos, com compressor ao fundo"></div>
     <div>
       <h2 class="d" data-in style="--i:1">Quem vai <span class="ouro">te guiar</span></h2>
-      <p class="l" data-in style="--i:2">Sou <b>Vitor Mendes</b>, engenheiro mecânico. Já estive do lado de quem não sabia por onde começar, e foi fazendo que construí o Método M.E.S.T.R.E. NR13: 12 módulos e 65 aulas, com casos reais gravados em campo e bancada.</p>
-      <p class="cit" data-in style="--i:3">Eu não ensino só na teoria. <span>Ensino o que aprendi fazendo.</span></p>
-      <div class="acao" data-in style="--i:4;justify-items:start"><a class="btn" href="#" data-checkout>Quero aprender com o Vitor</a></div>
+      <p class="l" data-in style="--i:2">Sou <b>Vitor Mendes</b>, engenheiro mecânico. Já estive do lado de quem não sabia por onde começar, e foi fazendo que construí o Método M.E.S.T.R.E. NR13.</p>
+      <div class="nums" data-in style="--i:3"><div><b>+150</b><span>empresas atendidas</span></div><div><b>+500</b><span>vasos de pressão</span></div><div><b>+600</b><span>alunos treinados</span></div></div>
+      <p class="cit" data-in style="--i:4">Eu não ensino só na teoria. <span>Ensino o que aprendi fazendo.</span></p>
+      <div class="acao" data-in style="--i:5;justify-items:start"><a class="btn" href="#" data-checkout>Quero aprender com o Vitor</a></div>
     </div>
   </div>
 </section>
