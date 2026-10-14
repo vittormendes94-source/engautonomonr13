@@ -107,6 +107,24 @@ p.l b{color:#fff}
 .etapa h3{font-family:var(--display);font-weight:400;font-size:24px;line-height:1;color:#fff}
 .etapa p{font-size:15px;color:var(--suave)}
 
+/* 6b. Prazos */
+.prazos{list-style:none;display:grid;gap:10px;margin-top:20px;text-align:left}
+.prazos li{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:center;background:linear-gradient(180deg,var(--sup-2),var(--sup));border:1px solid var(--borda-ouro);border-radius:16px;padding:12px 14px}
+.prazos b{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;color:var(--latao);text-align:center}
+.prazos h3{font-family:var(--display);font-weight:400;font-size:22px;line-height:1;color:#fff;margin-bottom:4px}
+.prazos p{font-size:14px;color:var(--suave)}
+
+/* 6c. Grade */
+.grade{display:grid;gap:5px;margin-top:14px;text-align:left}
+.grade details{background:var(--sup);border:1px solid var(--borda);border-radius:12px}
+.grade details[open]{border-color:var(--borda-ouro)}
+.grade summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;padding:7px 11px;font-size:13px;line-height:1.25}
+.grade summary::-webkit-details-marker{display:none}
+.grade .n{font-family:var(--display);font-size:18px;color:var(--latao);line-height:1}
+.grade .t{font-weight:700;color:#fff}
+.grade .c{font-size:12px;color:var(--suave);white-space:nowrap}
+.grade ol{margin:0 12px 10px 52px;font-size:13px;color:var(--suave)}
+
 /* 7. Instrutor */
 .guia{display:grid;gap:18px}
 .guia .retrato{width:100%;max-width:240px;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:2px solid var(--latao);box-shadow:0 30px 60px -24px rgba(0,0,0,.8);margin:0 auto}
@@ -282,6 +300,16 @@ footer a{color:#c8d3e2}
   .lib{font-size:clamp(110px,10vw,160px)}
   .caminho h3{font-size:30px}
   .caminho p{font-size:17px}
+  .prazos{grid-template-columns:repeat(3,1fr);gap:18px;max-width:1240px;margin:32px auto 0}
+  .prazos li{grid-template-columns:1fr;gap:12px;padding:28px 26px;align-content:start;text-align:center}
+  .prazos b{font-size:64px}
+  .prazos h3{font-size:30px}
+  .prazos p{font-size:16px}
+  .grade{grid-template-columns:1fr 1fr;gap:8px 14px;max-width:1100px;margin:22px auto 0}
+  .grade summary{padding:11px 16px;font-size:15px;grid-template-columns:36px 1fr auto}
+  .grade .n{font-size:22px}
+  .grade .c{font-size:13px}
+  .grade ol{font-size:14px;margin-left:62px}
   .meta15{max-width:560px;padding:16px 22px;gap:18px}
   .meta15 b{font-size:80px}
   .meta15 span{font-size:18px}
@@ -405,6 +433,29 @@ footer a{color:#c8d3e2}
       <li class="etapa" data-in style="--i:4"><div><h3>Vender</h3><p>Proposta e preço calculado, sem chute</p></div></li>
       <li class="etapa" data-in style="--i:5"><div><h3>Entregar</h3><p>Campo, relatório, ART e recorrência</p></div></li>
     </ol>
+  </div>
+</section>
+
+<!-- 6b. PRAZOS -->
+<section class="tela centro">
+  <div class="wrap">
+    <h2 class="d" data-in>Do zero ao primeiro serviço <span class="ouro">em 30 dias</span></h2>
+    <p class="l" data-in style="--i:1">Em quanto tempo isso vira resultado? Seguindo o plano do programa:</p>
+    <ol class="prazos">
+      <li data-in style="--i:2"><b>24h</b><div><h3>Você responde o cliente</h3><p>Lê o pedido, enquadra o equipamento e sabe dizer com segurança se consegue atender.</p></div></li>
+      <li data-in style="--i:3"><b>7 dias</b><div><h3>Você envia a proposta</h3><p>Escopo definido, preço calculado e proposta profissional pronta para assinar.</p></div></li>
+      <li data-in style="--i:4"><b>30 dias</b><div><h3>Você entrega o serviço</h3><p>Inspeção feita, relatório emitido, ART registrada e o próximo vencimento já na sua agenda.</p></div></li>
+    </ol>
+    <div class="acao" data-in style="--i:5"><a class="btn" href="#" data-checkout>Quero fazer meu primeiro serviço</a></div>
+  </div>
+</section>
+
+<!-- 6c. GRADE -->
+<section class="tela alt centro">
+  <div class="wrap">
+    <h2 class="d" data-in>O que você vai <span class="ouro">aprender</span></h2>
+    <p class="l" data-in style="--i:1">12 módulos e 65 aulas. Toque em um módulo para ver as aulas.</p>
+    <div class="grade" id="modules" data-in style="--i:2"></div>
   </div>
 </section>
 
@@ -622,7 +673,7 @@ var CONFIG = {
     var d = document.createElement("details");
     var s = document.createElement("summary");
     s.innerHTML = '<span class="n"></span><span class="t"></span><span class="c"></span>';
-    s.children[0].textContent = "";
+    s.children[0].textContent = m[0];
     s.children[1].textContent = m[1];
     s.children[2].textContent = m[2] + " aulas";
     d.appendChild(s); box.appendChild(d);
