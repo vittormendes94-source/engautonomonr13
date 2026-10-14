@@ -139,7 +139,7 @@ p.l b{color:#fff}
 .inclui li{display:flex;gap:10px;align-items:center;font-size:15px}
 .inclui svg{width:18px;height:18px;flex:0 0 auto;color:var(--ok)}
 .preco{text-align:center}
-.preco .lbl{font-size:15px;color:var(--suave)}
+.preco .lbl{font-size:15px;color:var(--latao);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
 .preco .big{font-family:var(--display);font-size:clamp(56px,15vw,72px);line-height:.9;color:var(--latao);white-space:nowrap}
 .preco .sub2{font-size:15px;color:var(--suave);margin-top:4px}
 .oferta .btn{margin-top:14px}
@@ -524,7 +524,7 @@ footer a{color:#c8d3e2}
     <h2 id="bf-titulo">Engenheiro Autônomo NR13</h2>
     <p class="de">de <s>R$ 2.997</s> por apenas</p>
     <p class="por">R$ 1.497</p>
-    <p class="parc">ou 12x de R$ 154,82 no cartão</p>
+    <p class="parc"><b>à vista</b> · ou parcele em até 12x no cartão</p>
     <div class="relogio" aria-label="Tempo restante da oferta">
       <div><b id="bf-d">00</b><span>dias</span></div>
       <div><b id="bf-h">00</b><span>horas</span></div>
@@ -545,9 +545,9 @@ footer a{color:#c8d3e2}
    ============================================================ */
 var CONFIG = {
   checkoutUrl: "https://pay.hotmart.com/O107817284U",
-  priceLabel: "",
+  priceLabel: "à vista",
   priceMain: "R$ 2.997",
-  priceSub: "ou parcelado em até 12x no cartão",
+  priceSub: "ou parcele em até 12x no cartão",
   // Black Friday: entra no ar sozinha a partir de "start" (e sai em "end", se preenchido).
   // Só ative (enabled: true) depois de criar a oferta promocional na Hotmart e colar o link dela em checkoutUrl.
   promo: {
@@ -555,8 +555,8 @@ var CONFIG = {
     start: "2026-11-16T00:00:00-03:00",
     end: "2026-11-30T23:59:59-03:00",
     priceMain: "R$ 1.497",
-    priceLabel: "Black Friday: de R$ 2.997 por",
-    priceSub: "ou 12x de R$ 154,82 no cartão",
+    priceLabel: "Black Friday: de R$ 2.997 por apenas",
+    priceSub: "à vista · ou parcele em até 12x no cartão",
     topbar: "BLACK FRIDAY · de R$ 2.997 por R$ 1.497 até 30/11",
     checkoutUrl: "https://pay.hotmart.com/O107817284U?off=wfthngqt"   // oferta de R$ 1.497 na Hotmart
     // Para ver a promoção antes da data, abra o site com ?bf=1 no final do endereço
