@@ -567,7 +567,7 @@ footer a{color:#c8d3e2}
     <h2 id="bf-titulo">Engenheiro Autônomo NR13</h2>
     <p class="de" id="bf-de">em 12x de</p>
     <p class="por" id="bf-por">R$ 154,82</p>
-    <p class="parc" id="bf-parc">ou <b>R$ 1.497 à vista</b> (de <s>R$ 2.997</s>)</p>
+    <p class="parc" id="bf-parc">ou <b>R$ 1.497 à vista</b> (de <s>R$ 2.997</s>) · parcelas com juros</p>
     <div class="relogio" aria-label="Tempo restante da oferta">
       <div><b id="bf-d">00</b><span>dias</span></div>
       <div><b id="bf-h">00</b><span>horas</span></div>
@@ -666,13 +666,13 @@ var CONFIG = {
   if (C.installValue) {
     C.priceLabel = (C.promoOn ? "Black Friday · " : "") + "em " + n + "x de";
     C.priceMain = C.installValue;
-    C.priceSub = "ou " + cash + " à vista" + (C.cashWas ? " (de " + C.cashWas + ")" : "");
+    C.priceSub = "ou " + cash + " à vista" + (C.cashWas ? " (de " + C.cashWas + ")" : "") + " · parcelas com juros";
   }
   var bfPor = document.getElementById("bf-por");
   if (bfPor) {
     document.getElementById("bf-de").textContent = C.installValue ? "em " + n + "x de" : "de " + (C.cashWas || "") + " por apenas";
     bfPor.textContent = C.installValue || cash;
-    document.getElementById("bf-parc").innerHTML = C.installValue ? "ou <b>" + cash + " à vista</b>" + (C.cashWas ? " (de <s>" + C.cashWas + "</s>)" : "") : "<b>à vista</b> · ou parcele em até " + n + "x no cartão";
+    document.getElementById("bf-parc").innerHTML = C.installValue ? "ou <b>" + cash + " à vista</b>" + (C.cashWas ? " (de <s>" + C.cashWas + "</s>)" : "") + " · parcelas com juros" : "<b>à vista</b> · ou parcele em até " + n + "x no cartão";
   }
   document.querySelectorAll("[data-cfg]").forEach(function(el){ el.textContent = C[el.getAttribute("data-cfg")] || ""; });
   document.getElementById("year").textContent = new Date().getFullYear();
