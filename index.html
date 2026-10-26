@@ -565,9 +565,9 @@ footer a{color:#c8d3e2}
     <button class="fechar" type="button" id="bf-fechar" aria-label="Fechar e conhecer o programa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></button>
     <span class="selo-bf">Black Friday</span>
     <h2 id="bf-titulo">Engenheiro Autônomo NR13</h2>
-    <p class="de">de <s>R$ 2.997</s> por apenas</p>
-    <p class="por">R$ 1.497</p>
-    <p class="parc"><b>à vista</b> · ou parcele em até 12x no cartão</p>
+    <p class="de" id="bf-de">em 12x de</p>
+    <p class="por" id="bf-por">R$ 154,82</p>
+    <p class="parc" id="bf-parc">ou <b>R$ 1.497 à vista</b> (de <s>R$ 2.997</s>)</p>
     <div class="relogio" aria-label="Tempo restante da oferta">
       <div><b id="bf-d">00</b><span>dias</span></div>
       <div><b id="bf-h">00</b><span>horas</span></div>
@@ -591,6 +591,8 @@ var CONFIG = {
   priceLabel: "à vista",
   priceMain: "R$ 2.997",
   priceSub: "ou parcele em até 12x no cartão",
+  installments: 12,
+  installValue: "",                 // PREENCHER com a parcela mostrada no checkout normal, ex.: "R$ 309,97". Vazio = destaca o à vista.
   // Black Friday: entra no ar sozinha a partir de "start" (e sai em "end", se preenchido).
   // Só ative (enabled: true) depois de criar a oferta promocional na Hotmart e colar o link dela em checkoutUrl.
   promo: {
@@ -600,6 +602,8 @@ var CONFIG = {
     priceMain: "R$ 1.497",
     priceLabel: "Black Friday: de R$ 2.997 por apenas",
     priceSub: "à vista · ou parcele em até 12x no cartão",
+    installValue: "R$ 154,82",      // 12x mostrado no checkout da oferta BlackFriday
+    cashWas: "R$ 2.997",
     topbar: "BLACK FRIDAY · de R$ 2.997 por R$ 1.497 até 30/11",
     checkoutUrl: "https://pay.hotmart.com/O107817284U?off=wfthngqt"   // oferta de R$ 1.497 na Hotmart
     // Para ver a promoção antes da data, abra o site com ?bf=1 no final do endereço
@@ -626,6 +630,7 @@ var CONFIG = {
   var previa = /[?&]bf=1(&|$)/.test(location.search);
   if (P && P.enabled && P.checkoutUrl && (previa || (now >= Date.parse(P.start) && (!P.end || now <= Date.parse(P.end))))) {
     C.priceMain = P.priceMain; C.priceLabel = P.priceLabel; C.priceSub = P.priceSub;
+    C.installValue = P.installValue; C.cashWas = P.cashWas; C.promoOn = true;
     C.checkoutUrl = P.checkoutUrl;
     var bar = document.getElementById("promobar"); bar.hidden = false;
     var tick = function(){
@@ -655,6 +660,19 @@ var CONFIG = {
       dlg.showModal();
       document.getElementById("bf-fechar").blur();
     }
+  }
+  // Preço: com parcela cadastrada, a parcela é o destaque e o à vista fica logo abaixo (valor total sempre visível)
+  var cash = C.priceMain, n = C.installments || 12;
+  if (C.installValue) {
+    C.priceLabel = (C.promoOn ? "Black Friday · " : "") + "em " + n + "x de";
+    C.priceMain = C.installValue;
+    C.priceSub = "ou " + cash + " à vista" + (C.cashWas ? " (de " + C.cashWas + ")" : "");
+  }
+  var bfPor = document.getElementById("bf-por");
+  if (bfPor) {
+    document.getElementById("bf-de").textContent = C.installValue ? "em " + n + "x de" : "de " + (C.cashWas || "") + " por apenas";
+    bfPor.textContent = C.installValue || cash;
+    document.getElementById("bf-parc").innerHTML = C.installValue ? "ou <b>" + cash + " à vista</b>" + (C.cashWas ? " (de <s>" + C.cashWas + "</s>)" : "") : "<b>à vista</b> · ou parcele em até " + n + "x no cartão";
   }
   document.querySelectorAll("[data-cfg]").forEach(function(el){ el.textContent = C[el.getAttribute("data-cfg")] || ""; });
   document.getElementById("year").textContent = new Date().getFullYear();
