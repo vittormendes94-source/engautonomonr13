@@ -77,7 +77,11 @@ p.l b{color:#fff}
 .abre h1{font-size:clamp(36px,9.6vw,50px);margin-bottom:8px}
 .sub-h1{font-size:clamp(24px,6.6vw,34px);line-height:1;margin-bottom:12px}
 .abre p.l{margin-bottom:0}
-.abre .acao{margin-top:20px}
+.abre .acao{margin-top:14px}
+.hpreco{margin-top:16px;display:grid;justify-items:center;text-align:center;gap:2px;padding:12px 16px;border:1px solid rgba(226,174,58,.45);border-radius:16px;background:rgba(7,17,31,.55);backdrop-filter:blur(4px)}
+.hpreco .hl{font-size:13px;color:var(--suave);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.hpreco b{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(44px,13vw,58px);line-height:1;color:var(--latao)}
+.hpreco .hs{font-size:13px;color:var(--suave)}
 
 /* 2. Números */
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
@@ -257,6 +261,8 @@ footer a{color:#c8d3e2}
   .sub-h1{font-size:clamp(30px,2.6vw,42px);max-width:560px}
   .abre p.l{font-size:20px;max-width:46ch}
   .abre .acao{justify-items:start;text-align:left}
+  .hpreco{justify-items:start;text-align:left;width:max-content;max-width:100%;margin-top:22px}
+  .hpreco b{font-size:68px}
   h2.d{font-size:clamp(54px,5.6vw,84px);margin-bottom:16px}
   .nums{gap:12px;margin-top:18px;max-width:520px}
   .nums div{padding:14px 8px}
@@ -370,6 +376,7 @@ footer a{color:#c8d3e2}
     <h1 class="d" data-in style="--i:1">Tem diploma de engenheiro mecânico e não atua na área?</h1>
     <p class="sub-h1 d" data-in style="--i:2"><span class="ouro">Aqui eu te mostro como sair do zero e faturar com NR-13.</span></p>
     <p class="l" data-in style="--i:3">Do primeiro cliente ao relatório com ART, <b>por conta própria</b>, mesmo que você tenha acabado de se formar.</p>
+    <div class="hpreco" data-in style="--i:3"><span class="hl" id="h-lbl"></span><b id="h-main"></b><span class="hs" id="h-sub"></span></div>
     <div class="acao" data-in style="--i:3">
       <a class="btn pulso" href="#" data-checkout>Quero sair do zero</a>
       <small>12 módulos · 65 aulas · 7 dias de garantia</small>
@@ -675,6 +682,9 @@ var CONFIG = {
     document.getElementById("bf-parc").innerHTML = C.installValue ? "ou <b>" + cash + " à vista</b>" + (C.cashWas ? " (de <s>" + C.cashWas + "</s>)" : "") + " · parcelas com juros" : "<b>à vista</b> · ou parcele em até " + n + "x no cartão";
   }
   document.querySelectorAll("[data-cfg]").forEach(function(el){ el.textContent = C[el.getAttribute("data-cfg")] || ""; });
+  document.getElementById("h-lbl").textContent = C.priceLabel;
+  document.getElementById("h-main").textContent = C.priceMain;
+  document.getElementById("h-sub").textContent = C.priceSub;
   document.getElementById("year").textContent = new Date().getFullYear();
 
   // Grade de módulos
