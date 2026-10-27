@@ -712,6 +712,18 @@ var CONFIG = {
     if (/^(utm_|src$|sck$|xcod$|fbclid$|gclid$)/.test(k)) url.searchParams.set(k, v);
   });
   document.querySelectorAll("[data-checkout]").forEach(function(a){ a.href = url.toString(); });
+  // Meta Pixel (carrega depois da página pronta, sem atrasar a abertura)
+  function metaPixel(){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init","2547214342450722");
+    fbq("track","PageView");
+    fbq("track","ViewContent",{content_name:"Programa Engenheiro Autônomo NR13"});
+    document.querySelectorAll("[data-checkout]").forEach(function(a){
+      a.addEventListener("click",function(){ fbq("track","InitiateCheckout",{currency:"BRL",value:C.promoOn?1497:2997}); });
+    });
+  }
+  if (document.readyState === "complete") setTimeout(metaPixel, 300);
+  else window.addEventListener("load", function(){ setTimeout(metaPixel, 300); });
 
   // Entrada dos elementos de cada seção e abertura do mostrador no topo
   var hero = document.getElementById("hero");
